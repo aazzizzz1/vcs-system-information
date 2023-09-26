@@ -132,7 +132,7 @@ const Sidebar2 = () => {
           </div>
           <div>
             <a
-              href="#"
+              href="a"
               className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
             >
               <div className="flex-shrink-0">
@@ -168,7 +168,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
             >
               <div className="flex-shrink-0">
@@ -206,7 +206,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
             >
               <div className="flex-shrink-0">
@@ -248,14 +248,14 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
             >
               <div className="flex-shrink-0">
                 <img
                   className="w-11 h-11 rounded-full"
                   src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
-                  alt="Roberta Casas image"
+                  alt="Roberta Casas"
                 />
                 <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-gray-700">
                   <svg
@@ -290,14 +290,14 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600"
             >
               <div className="flex-shrink-0">
                 <img
                   className="w-11 h-11 rounded-full"
                   src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/robert-brown.png"
-                  alt="Robert image"
+                  alt="Robert"
                 />
                 <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white dark:border-gray-700">
                   <svg
@@ -326,7 +326,7 @@ const Sidebar2 = () => {
             </a>
           </div>
           <a
-            href="#"
+            href="a"
             className="block py-2 text-md font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 dark:text-white dark:hover:underline"
           >
             <div className="inline-flex items-center">
@@ -375,7 +375,7 @@ const Sidebar2 = () => {
           </div>
           <div className="grid grid-cols-3 gap-4 p-4">
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -394,7 +394,7 @@ const Sidebar2 = () => {
               <div className="text-sm text-gray-900 dark:text-white">Sales</div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -409,7 +409,7 @@ const Sidebar2 = () => {
               <div className="text-sm text-gray-900 dark:text-white">Users</div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -428,7 +428,7 @@ const Sidebar2 = () => {
               <div className="text-sm text-gray-900 dark:text-white">Inbox</div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -449,7 +449,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -470,7 +470,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -492,7 +492,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -514,7 +514,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -535,7 +535,7 @@ const Sidebar2 = () => {
               </div>
             </a>
             <a
-              href="#"
+              href="a"
               className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
             >
               <svg
@@ -570,7 +570,7 @@ const Sidebar2 = () => {
           <img
             className="w-8 h-8 rounded-full"
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
-            alt="user photo"
+            alt="user "
           />
         </button>
         {/* Dropdown menu */}
@@ -592,7 +592,7 @@ const Sidebar2 = () => {
           >
             <li>
               <a
-                href="#"
+                href="a"
                 className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
               >
                 My profile
@@ -600,7 +600,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
               >
                 Account settings
@@ -613,7 +613,7 @@ const Sidebar2 = () => {
           >
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <svg
@@ -633,7 +633,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <svg
@@ -649,7 +649,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <span className="flex items-center">
@@ -690,7 +690,7 @@ const Sidebar2 = () => {
           >
             <li>
               <a
-                href="#"
+                href="a"
                 className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Sign out
@@ -739,7 +739,7 @@ const Sidebar2 = () => {
       <ul className="space-y-2">
         <li>
           <a
-            href="#"
+            href="a"
             className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -795,7 +795,7 @@ const Sidebar2 = () => {
           <ul id="dropdown-pages" className="hidden py-2 space-y-2">
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Settings
@@ -803,7 +803,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Kanban
@@ -811,7 +811,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Calendar
@@ -859,7 +859,7 @@ const Sidebar2 = () => {
           <ul id="dropdown-sales" className="hidden py-2 space-y-2">
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Products
@@ -867,7 +867,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Billing
@@ -875,7 +875,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Invoice
@@ -885,7 +885,7 @@ const Sidebar2 = () => {
         </li>
         <li>
           <a
-            href="#"
+            href="a"
             className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -944,7 +944,7 @@ const Sidebar2 = () => {
           <ul id="dropdown-authentication" className="hidden py-2 space-y-2">
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Sign In
@@ -952,7 +952,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Sign Up
@@ -960,7 +960,7 @@ const Sidebar2 = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Forgot Password
@@ -972,7 +972,7 @@ const Sidebar2 = () => {
       <ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
         <li>
           <a
-            href="#"
+            href="a"
             className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
             <svg
@@ -994,7 +994,7 @@ const Sidebar2 = () => {
         </li>
         <li>
           <a
-            href="#"
+            href="a"
             className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
             <svg
@@ -1011,7 +1011,7 @@ const Sidebar2 = () => {
         </li>
         <li>
           <a
-            href="#"
+            href="a"
             className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
             <svg
@@ -1034,7 +1034,7 @@ const Sidebar2 = () => {
     </div>
     <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white dark:bg-gray-800 z-20">
       <a
-        href="#"
+        href="a"
         className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
       >
         <svg
@@ -1048,7 +1048,7 @@ const Sidebar2 = () => {
         </svg>
       </a>
       <a
-        href="#"
+        href="a"
         data-tooltip-target="tooltip-settings"
         className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600"
       >
@@ -1126,7 +1126,7 @@ const Sidebar2 = () => {
         <ul className="py-1" role="none">
           <li>
             <a
-              href="#"
+              href="a"
               className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
               role="menuitem"
             >
@@ -1169,7 +1169,7 @@ const Sidebar2 = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="a"
               className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
               role="menuitem"
             >
@@ -1191,7 +1191,7 @@ const Sidebar2 = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="a"
               className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
               role="menuitem"
             >
@@ -1215,7 +1215,7 @@ const Sidebar2 = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="a"
               className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
               role="menuitem"
             >

@@ -6,7 +6,7 @@ const SignUp = () => {
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
-          href="#"
+          href="a"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
           <img
@@ -87,6 +87,7 @@ const SignUp = () => {
                   >
                     I accept the{" "}
                     <a
+                      href="a"
                       className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                       data-modal-target="defaultModal"
                       data-modal-toggle="defaultModal"

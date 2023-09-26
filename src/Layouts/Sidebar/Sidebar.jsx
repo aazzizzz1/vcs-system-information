@@ -1,18 +1,7 @@
-import React, { Children, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../../StateManagements/GlobalContext";
 
 const Sidebar = (props) => {
-    //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
-  const { state, handleFunction } = useContext(GlobalContext)
-
-  //Membuat destructuring dari Global Context
-  const {
-    } = state
-
-    const{
-    }= handleFunction
-
   return (
     <>
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -212,7 +201,7 @@ const Sidebar = (props) => {
               <ul id="dropdown-example" className="hidden py-2 space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="a"
                     className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Products
@@ -220,7 +209,7 @@ const Sidebar = (props) => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="a"
                     className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Billing
@@ -228,7 +217,7 @@ const Sidebar = (props) => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="a"
                     className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Invoice

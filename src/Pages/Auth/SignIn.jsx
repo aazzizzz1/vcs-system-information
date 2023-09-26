@@ -2,7 +2,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AlertWarning from "../../Components/Alert/AlertWarning";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -43,9 +42,6 @@ const SignIn = () => {
     })
     .catch((err) =>{
       // alert(err.response.data.error)
-      {<div>
-        <AlertWarning/>
-      </div>}
       alert(err.response.data.error)
       console.log(err)
     })
@@ -56,7 +52,7 @@ const SignIn = () => {
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
-            href="#"
+            href="a"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
             <img
@@ -225,7 +221,7 @@ const SignIn = () => {
                     </div>
                   </div>
                   <a
-                    href="#"
+                    href="a"
                     className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Forgot password?
