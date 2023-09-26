@@ -37,9 +37,9 @@ const RouteComponents = () => {
             path="/"
             element={
               <HomeRoute>
-                <Sidebar2>
+                <Sidebar>
                   <Table/>
-                </Sidebar2>
+                </Sidebar>
               </HomeRoute>
             }
           />
