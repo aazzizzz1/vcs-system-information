@@ -4,8 +4,8 @@ const TableProductManager = () => {
   return (
     <>
   {/* Start block */}
-  <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
-    <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
+  <section className="bg-gray-50 dark:bg-gray-900 antialiased">
+    <div className="mx-auto max-w-screen-2xl">
       <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
           <div className="flex-1 flex items-center space-x-2">
@@ -48,7 +48,7 @@ const TableProductManager = () => {
           <div className="flex-shrink-0 flex flex-col items-start md:flex-row md:items-center lg:justify-end space-y-3 md:space-y-0 md:space-x-3">
             <button
               type="button"
-              className="flex-shrink-0 inline-flex items-center justify-center py-2 px-3 text-xs font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              className="flex-shrink-0 inline-flex items-center justify-center py-2 px-3 text-xs font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const TableProductManager = () => {
                   id="simple-search"
                   placeholder="Search for products"
                   required=""
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
             </form>
@@ -104,7 +104,7 @@ const TableProductManager = () => {
               type="button"
               id="createProductButton"
               data-modal-toggle="createProductModal"
-              className="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+              className="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               <svg
                 className="h-3.5 w-3.5 mr-1.5 -ml-1"
@@ -124,7 +124,7 @@ const TableProductManager = () => {
             <button
               id="filterDropdownButton"
               data-dropdown-toggle="filterDropdown"
-              className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
               type="button"
             >
               <svg
@@ -165,14 +165,14 @@ const TableProductManager = () => {
                 </h6>
                 <div className="flex items-center space-x-3">
                   <a
-                    href="#"
-                    className="flex items-center text-sm font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                    href="a"
+                    className="flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     Save view
                   </a>
                   <a
-                    href="#"
-                    className="flex items-center text-sm font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                    href="a"
+                    className="flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     Clear all
                   </a>
@@ -201,7 +201,7 @@ const TableProductManager = () => {
                   <input
                     type="text"
                     id="input-group-search"
-                    className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Search keywords..."
                   />
                 </div>
@@ -250,7 +250,7 @@ const TableProductManager = () => {
                           id="apple"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="apple"
@@ -264,7 +264,7 @@ const TableProductManager = () => {
                           id="microsoft"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="microsoft"
@@ -279,7 +279,7 @@ const TableProductManager = () => {
                           type="checkbox"
                           defaultValue=""
                           defaultChecked=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="logitech"
@@ -293,7 +293,7 @@ const TableProductManager = () => {
                           id="sony"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="sony"
@@ -308,7 +308,7 @@ const TableProductManager = () => {
                           type="checkbox"
                           defaultValue=""
                           defaultChecked=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="asus"
@@ -322,7 +322,7 @@ const TableProductManager = () => {
                           id="dell"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="dell"
@@ -336,7 +336,7 @@ const TableProductManager = () => {
                           id="msi"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="msi"
@@ -351,7 +351,7 @@ const TableProductManager = () => {
                           type="checkbox"
                           defaultValue=""
                           defaultChecked=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="canon"
@@ -365,7 +365,7 @@ const TableProductManager = () => {
                           id="benq"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="benq"
@@ -379,7 +379,7 @@ const TableProductManager = () => {
                           id="razor"
                           type="checkbox"
                           defaultValue=""
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                         />
                         <label
                           htmlFor="razor"
@@ -389,8 +389,8 @@ const TableProductManager = () => {
                         </label>
                       </li>
                       <a
-                        href="#"
-                        className="flex items-center text-sm font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                        href="a"
+                        className="flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
                       >
                         View all
                       </a>
@@ -431,7 +431,7 @@ const TableProductManager = () => {
                   <div className="flex items-center py-2 space-x-3 font-light border-b border-gray-200 dark:border-gray-600">
                     <select
                       id="price-from"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                       <option disabled="" selected="">
                         From
@@ -442,7 +442,7 @@ const TableProductManager = () => {
                     </select>
                     <select
                       id="price-to"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                       <option disabled="" selected="">
                         To
@@ -493,7 +493,7 @@ const TableProductManager = () => {
                         name="shipping"
                         defaultChecked=""
                       />
-                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600" />
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         North America
                       </span>
@@ -505,7 +505,7 @@ const TableProductManager = () => {
                         className="sr-only peer"
                         name="shipping"
                       />
-                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600" />
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         South America
                       </span>
@@ -517,7 +517,7 @@ const TableProductManager = () => {
                         className="sr-only peer"
                         name="shipping"
                       />
-                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600" />
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Asia
                       </span>
@@ -530,7 +530,7 @@ const TableProductManager = () => {
                         name="shipping"
                         defaultChecked=""
                       />
-                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600" />
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Australia
                       </span>
@@ -542,7 +542,7 @@ const TableProductManager = () => {
                         className="sr-only peer"
                         name="shipping"
                       />
-                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600" />
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Europe
                       </span>
@@ -587,7 +587,7 @@ const TableProductManager = () => {
                         type="radio"
                         defaultValue=""
                         name="rating"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 bg-gray-100 border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor="five-stars"
@@ -651,7 +651,7 @@ const TableProductManager = () => {
                         type="radio"
                         defaultValue=""
                         name="rating"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 bg-gray-100 border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor="four-stars"
@@ -716,7 +716,7 @@ const TableProductManager = () => {
                         defaultValue=""
                         name="rating"
                         defaultChecked=""
-                        className="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 bg-gray-100 border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor="three-stars"
@@ -780,7 +780,7 @@ const TableProductManager = () => {
                         type="radio"
                         defaultValue=""
                         name="rating"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 bg-gray-100 border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor="two-stars"
@@ -844,7 +844,7 @@ const TableProductManager = () => {
                         type="radio"
                         defaultValue=""
                         name="rating"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 bg-gray-100 border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor="one-star"
@@ -910,7 +910,7 @@ const TableProductManager = () => {
               <button
                 id="actionsDropdownButton"
                 data-dropdown-toggle="actionsDropdown"
-                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 type="button"
               >
                 Actions
@@ -938,7 +938,7 @@ const TableProductManager = () => {
                 >
                   <li>
                     <a
-                      href="#"
+                      href="a"
                       className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Mass Edit
@@ -947,7 +947,7 @@ const TableProductManager = () => {
                 </ul>
                 <div className="py-1">
                   <a
-                    href="#"
+                    href="a"
                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Delete all
@@ -966,7 +966,7 @@ const TableProductManager = () => {
                     <input
                       id="checkbox-all"
                       type="checkbox"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label htmlFor="checkbox-all" className="sr-only">
                       checkbox
@@ -1010,7 +1010,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1027,14 +1027,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front"
                       className="h-8 w-auto mr-3"
                     />
                     Apple iMac 27"
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Desktop PC
                   </span>
                 </td>
@@ -1124,7 +1124,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1147,7 +1147,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1195,7 +1195,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1212,14 +1212,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     Apple iMac 20"
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Desktop PC
                   </span>
                 </td>
@@ -1309,7 +1309,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1332,7 +1332,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1380,7 +1380,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1397,14 +1397,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-iphone-14.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     Apple iPhone 14
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Phone
                   </span>
                 </td>
@@ -1494,7 +1494,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1517,7 +1517,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1565,7 +1565,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1582,14 +1582,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-ipad-air.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     Apple iPad Air
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Tablet
                   </span>
                 </td>
@@ -1679,7 +1679,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1702,7 +1702,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1750,7 +1750,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1767,14 +1767,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-s.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     Xbox Series S
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Console
                   </span>
                 </td>
@@ -1864,7 +1864,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1887,7 +1887,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1935,7 +1935,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -1952,14 +1952,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/playstation-5.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     PlayStation 5
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Console
                   </span>
                 </td>
@@ -2049,7 +2049,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2072,7 +2072,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2120,7 +2120,7 @@ const TableProductManager = () => {
                       id="checkbox-table-search-1"
                       type="checkbox"
                       onclick="event.stopPropagation()"
-                      className="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       htmlFor="checkbox-table-search-1"
@@ -2137,14 +2137,14 @@ const TableProductManager = () => {
                   <div className="flex items-center mr-3">
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-x.png"
-                      alt="iMac Front Image"
+                      alt="iMac Front "
                       className="h-8 w-auto mr-3"
                     />
                     Xbox Series X
                   </div>
                 </th>
                 <td className="px-4 py-3">
-                  <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                     Gaming/Console
                   </span>
                 </td>
@@ -2234,7 +2234,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-update-product"
                       data-drawer-show="drawer-update-product"
                       aria-controls="drawer-update-product"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2257,7 +2257,7 @@ const TableProductManager = () => {
                       data-drawer-target="drawer-read-product-advanced"
                       data-drawer-show="drawer-read-product-advanced"
                       aria-controls="drawer-read-product-advanced"
-                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2318,7 +2318,7 @@ const TableProductManager = () => {
           <ul className="inline-flex items-stretch -space-x-px">
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 <span className="sr-only">Previous</span>
@@ -2339,7 +2339,7 @@ const TableProductManager = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 1
@@ -2347,7 +2347,7 @@ const TableProductManager = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 2
@@ -2355,16 +2355,16 @@ const TableProductManager = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 aria-current="page"
-                className="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-primary-600 bg-primary-50 border border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                className="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-blue-600 bg-blue-50 border border-blue-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
               >
                 3
               </a>
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 ...
@@ -2372,7 +2372,7 @@ const TableProductManager = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 100
@@ -2380,7 +2380,7 @@ const TableProductManager = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="a"
                 className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 <span className="sr-only">Next</span>
@@ -2454,7 +2454,7 @@ const TableProductManager = () => {
                 type="text"
                 name="name"
                 id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Type product name"
                 required=""
               />
@@ -2468,7 +2468,7 @@ const TableProductManager = () => {
               </label>
               <select
                 id="category"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option selected="">Select category</option>
                 <option value="TV">TV/Monitors</option>
@@ -2488,7 +2488,7 @@ const TableProductManager = () => {
                 type="text"
                 name="brand"
                 id="brand"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Product brand"
                 required=""
               />
@@ -2504,7 +2504,7 @@ const TableProductManager = () => {
                 type="number"
                 name="price"
                 id="price"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="$2999"
                 required=""
               />
@@ -2521,7 +2521,7 @@ const TableProductManager = () => {
                   type="number"
                   name="weight"
                   id="weight"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder={12}
                   required=""
                 />
@@ -2537,7 +2537,7 @@ const TableProductManager = () => {
                   type="number"
                   name="length"
                   id="length"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder={105}
                   required=""
                 />
@@ -2553,7 +2553,7 @@ const TableProductManager = () => {
                   type="number"
                   name="breadth"
                   id="breadth"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder={15}
                   required=""
                 />
@@ -2569,7 +2569,7 @@ const TableProductManager = () => {
                   type="number"
                   name="width"
                   id="width"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder={23}
                   required=""
                 />
@@ -2585,7 +2585,7 @@ const TableProductManager = () => {
               <textarea
                 id="description"
                 rows={4}
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Write product description here"
                 defaultValue={""}
               />
@@ -2598,7 +2598,7 @@ const TableProductManager = () => {
                 type="checkbox"
                 defaultValue=""
                 name="sellingType"
-                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
               <label
                 htmlFor="inline-checkbox"
@@ -2613,7 +2613,7 @@ const TableProductManager = () => {
                 type="checkbox"
                 defaultValue=""
                 name="sellingType"
-                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
               <label
                 htmlFor="inline-2-checkbox"
@@ -2629,7 +2629,7 @@ const TableProductManager = () => {
                 type="checkbox"
                 defaultValue=""
                 name="sellingType"
-                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
               <label
                 htmlFor="inline-checked-checkbox"
@@ -2679,11 +2679,11 @@ const TableProductManager = () => {
           <div className="items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
             <button
               type="submit"
-              className="w-full sm:w-auto justify-center text-white inline-flex bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              className="w-full sm:w-auto justify-center text-white inline-flex bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Add product
             </button>
-            <button className="w-full sm:w-auto text-white justify-center inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+            <button className="w-full sm:w-auto text-white justify-center inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <svg
                 className="mr-1 -ml-1 w-5 h-5"
                 fill="currentColor"
@@ -2701,7 +2701,7 @@ const TableProductManager = () => {
             <button
               data-modal-toggle="createProductModal"
               type="button"
-              className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+              className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
             >
               <svg
                 className="mr-1 -ml-1 w-5 h-5"
@@ -2771,7 +2771,7 @@ const TableProductManager = () => {
             type="text"
             name="name"
             id="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue="Apple iMac 27“"
             placeholder="Type product name"
             required=""
@@ -2985,7 +2985,7 @@ const TableProductManager = () => {
             <div className="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
               <img
                 src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
-                alt="imac image"
+                alt="imac "
               />
               <button
                 type="button"
@@ -3010,7 +3010,7 @@ const TableProductManager = () => {
             <div className="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
               <img
                 src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-                alt="imac image"
+                alt="imac "
               />
               <button
                 type="button"
@@ -3035,7 +3035,7 @@ const TableProductManager = () => {
             <div className="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
               <img
                 src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-back-image.png"
-                alt="imac image"
+                alt="imac "
               />
               <button
                 type="button"
@@ -3060,7 +3060,7 @@ const TableProductManager = () => {
             <div className="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
               <img
                 src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
-                alt="imac image"
+                alt="imac "
               />
               <button
                 type="button"
@@ -3121,7 +3121,7 @@ const TableProductManager = () => {
             id="product-options"
             type="checkbox"
             defaultValue=""
-            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
           <label
             htmlFor="product-options"
@@ -3150,7 +3150,7 @@ const TableProductManager = () => {
             datepicker=""
             id="datepicker"
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 datepicker-input"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
             defaultValue="15/08/2022"
             placeholder="Select date"
           />
@@ -3167,7 +3167,7 @@ const TableProductManager = () => {
           <input
             type="text"
             id="product-brand"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue="Apple"
             placeholder="Product Brand"
             required=""
@@ -3182,7 +3182,7 @@ const TableProductManager = () => {
           </label>
           <select
             id="category"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected="">Electronics</option>
             <option value="TV">TV/Monitors</option>
@@ -3202,7 +3202,7 @@ const TableProductManager = () => {
             type="number"
             name="item-weight"
             id="item-weight"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue={12}
             placeholder="Ex. 12"
             required=""
@@ -3219,7 +3219,7 @@ const TableProductManager = () => {
             type="number"
             name="length"
             id="lenght"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue={105}
             placeholder="Ex. 105"
             required=""
@@ -3236,7 +3236,7 @@ const TableProductManager = () => {
             type="number"
             name="breadth"
             id="breadth"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue={15}
             placeholder="Ex. 15"
             required=""
@@ -3253,7 +3253,7 @@ const TableProductManager = () => {
             type="number"
             name="width"
             id="width"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue={23}
             placeholder="Ex. 23"
             required=""
@@ -3264,7 +3264,7 @@ const TableProductManager = () => {
     <div className="grid grid-cols-2 gap-4 mt-6 sm:w-1/2">
       <button
         type="submit"
-        className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Update product
       </button>
@@ -3333,37 +3333,37 @@ const TableProductManager = () => {
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
-          alt="iMac Side Image"
+          alt="iMac Side"
         />
       </div>
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-          alt="iMac Front Image"
+          alt="iMac Front "
         />
       </div>
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-back-image.png"
-          alt="iMac Back Image"
+          alt="iMac Back "
         />
       </div>
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
-          alt="iMac Back Image"
+          alt="iMac Back "
         />
       </div>
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-back-image.png"
-          alt="iMac Front Image"
+          alt="iMac Front "
         />
       </div>
       <div className="p-2 w-auto bg-gray-100 rounded-lg dark:bg-gray-700">
         <img
           src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
-          alt="iMac Side Image"
+          alt="iMac Side "
         />
       </div>
     </div>
@@ -3407,7 +3407,7 @@ const TableProductManager = () => {
         <dd className="flex items-center space-x-2 font-light text-gray-500 dark:text-gray-400">
           <div className="flex-shrink-0 w-6 h-6 bg-purple-600 rounded-full" />
           <div className="flex-shrink-0 w-6 h-6 bg-indigo-400 rounded-full" />
-          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-600" />
+          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600" />
           <div className="flex-shrink-0 w-6 h-6 bg-pink-400 rounded-full" />
           <div className="flex-shrink-0 w-6 h-6 bg-teal-300 rounded-full" />
           <div className="flex-shrink-0 w-6 h-6 bg-green-300 rounded-full" />
@@ -3418,7 +3418,7 @@ const TableProductManager = () => {
           Product State
         </dt>
         <dd className="text-gray-500 dark:text-gray-400">
-          <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+          <span className="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
             <svg
               aria-hidden="true"
               className="mr-1 w-3 h-3"
@@ -3466,7 +3466,7 @@ const TableProductManager = () => {
     <div className="flex bottom-0 left-0 justify-center pb-4 space-x-4 w-full">
       <button
         type="button"
-        className="text-white w-full inline-flex items-center justify-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        className="text-white w-full inline-flex items-center justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         <svg
           aria-hidden="true"

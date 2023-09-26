@@ -9,6 +9,7 @@ import Table from "../Pages/Dashboard/Table";
 import Home from "../Pages/Dashboard/Home"
 import Default from "../Components/Default/Default";
 import Sidebar2 from "../Components/Sidebar/Sidebar2";
+import TableProductManager from "../Components/Table/TableProductManager";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
@@ -36,9 +37,9 @@ const RouteComponents = () => {
             path="/"
             element={
               <HomeRoute>
-                <Sidebar>
+                <Sidebar2>
                   <Table/>
-                </Sidebar>
+                </Sidebar2>
               </HomeRoute>
             }
           />
@@ -46,9 +47,19 @@ const RouteComponents = () => {
             path="/home"
             element={
               <HomeRoute>
-                <Sidebar>
+                <Sidebar2>
                   <Home/>
-                </Sidebar>
+                </Sidebar2>
+              </HomeRoute>
+            }
+          />
+          <Route
+            path="/table-2"
+            element={
+              <HomeRoute>
+                <Sidebar2>
+                  <TableProductManager/>
+                </Sidebar2>
               </HomeRoute>
             }
           />
