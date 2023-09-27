@@ -86,14 +86,13 @@ const SignUp = () => {
                     className="font-light text-gray-500 dark:text-gray-300"
                   >
                     I accept the{" "}
-                    <a
-                      href="a"
+                    <link
                       className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                       data-modal-target="defaultModal"
                       data-modal-toggle="defaultModal"
                     >
                       Terms and Conditions
-                    </a>
+                    </link>
                   </label>
                   {/* Modals Terms and COndotions */}
                   <div

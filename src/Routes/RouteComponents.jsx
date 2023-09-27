@@ -4,11 +4,10 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignIn from "../Pages/Auth/SignIn"
 import SignUp from "../Pages/Auth/SignUp"
 import { GlobalProvider } from "../StateManagements/GlobalContext";
-import Sidebar from "../Layouts/Sidebar/Sidebar";
 import Table from "../Pages/Dashboard/Table";
 import Home from "../Pages/Dashboard/Home"
 import Default from "../Components/Default/Default";
-import Sidebar2 from "../Components/Sidebar/Sidebar2";
+import LayoutSidebar from "../Layouts/Sidebar/LayoutSidebar";
 import TableProductManager from "../Components/Table/TableProductManager";
 
 const SignInRoute = (props) =>{
@@ -37,9 +36,9 @@ const RouteComponents = () => {
             path="/"
             element={
               <HomeRoute>
-                <Sidebar>
+                <LayoutSidebar>
                   <Table/>
-                </Sidebar>
+                </LayoutSidebar>
               </HomeRoute>
             }
           />
@@ -47,9 +46,9 @@ const RouteComponents = () => {
             path="/home"
             element={
               <HomeRoute>
-                <Sidebar2>
+                <LayoutSidebar>
                   <Home/>
-                </Sidebar2>
+                </LayoutSidebar>
               </HomeRoute>
             }
           />
@@ -57,9 +56,9 @@ const RouteComponents = () => {
             path="/table-2"
             element={
               <HomeRoute>
-                <Sidebar2>
+                <LayoutSidebar>
                   <TableProductManager/>
-                </Sidebar2>
+                </LayoutSidebar>
               </HomeRoute>
             }
           />
@@ -67,9 +66,9 @@ const RouteComponents = () => {
             path="/default"
             element={
               <HomeRoute>
-                <Sidebar>
+                <LayoutSidebar>
                   <Default/>
-                </Sidebar>
+                </LayoutSidebar>
               </HomeRoute>
             }
           />
@@ -82,7 +81,7 @@ const RouteComponents = () => {
             }
           />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/coba" element={<Sidebar2/>} />
+          <Route path="/coba" element={<LayoutSidebar/>} />
         </Routes>
       </GlobalProvider>
       </BrowserRouter>
