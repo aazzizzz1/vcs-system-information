@@ -35,11 +35,6 @@ const Table = () => {
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div className="flex items-center justify-between py-4 px-3 bg-white dark:bg-gray-800">
         <div className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-          {/* <button onClick={togglePop}>Create Data</button>
-      {seen ? <CreateData toggle={togglePop} /> : null} */}
-          {/* <button>Create Data</button> */}
-          {/* <CreatePopUp/> */}
-          {/* Modal toggle */}
           <button
             data-modal-target="createdata-modal"
             data-modal-toggle="createdata-modal"
@@ -186,8 +181,7 @@ const Table = () => {
             <Spinner />
           </>
         )}
-        {data !== null &&
-          data.map((element) => {
+        {data?.map((element) => {
             return (
               <>
                 <tbody key={element.id}>
@@ -218,15 +212,15 @@ const Table = () => {
                       />
                       <div className="pl-3">
                         <div className="text-base font-semibold">
-                          {element.name}
+                          {element?.name}
                         </div>
                         <div className="font-normal text-gray-500">
                           bonnie@flowbite.com
                         </div>
                       </div>
                     </th>
-                    <td className="px-6 py-4">{`${element.score}`}</td>
-                    <td className="px-6 py-4">{handleNilai(element.score)}</td>
+                    <td className="px-6 py-4">{`${element?.score}`}</td>
+                    <td className="px-6 py-4">{handleNilai(element?.score)}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
                         <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2" />{" "}
@@ -237,8 +231,8 @@ const Table = () => {
                       {/* Modal toggle */}
                       <Link
                         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        onClick={(e) => handleEdit(e, element.id)}
-                        data-user-id={element.id}
+                        onClick={(e) => handleEdit(e, element?.id)}
+                        data-user-id={element?.id}
                         //Untuk membuat modal keluar atau tampil
                         data-modal-target="createdata-modal"
                         data-modal-toggle="createdata-modal"
@@ -248,8 +242,8 @@ const Table = () => {
                       <a
                         href="ok"
                         className="font-medium text-red-600 dark:text-red-500 hover:underline ml-3"
-                        onClick={(e) => handleDelete(e, element.id)}
-                        data-user-id={element.id}
+                        onClick={(e) => handleDelete(e, element?.id)}
+                        data-user-id={element?.id}
                       >
                         Delete user
                       </a>

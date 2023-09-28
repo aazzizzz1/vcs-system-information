@@ -174,6 +174,21 @@ export const GlobalProvider = (props) => {
         });
     };
 
+    //SignUp
+    const [termsAccepted, setTermsAccepted] = useState(false);
+
+    const handleAccept = () => {
+        setTermsAccepted(!termsAccepted); // Toggle the value true
+    };
+
+    const handleAcceptClick = () => {
+        setTermsAccepted(true);
+    };
+
+    const handleDecelineClick = () => {
+        setTermsAccepted(false);
+    };
+
   //Membuat Variable untuk semua state dan function
   //Variable Global State
     let state = {
@@ -185,6 +200,9 @@ export const GlobalProvider = (props) => {
     setData,
     curretID,
     setcurrentID,
+    //SignUp
+    termsAccepted,
+    setTermsAccepted,
     };
 
   // Variable Global Function
@@ -196,6 +214,10 @@ export const GlobalProvider = (props) => {
     handleDelete,
     handleEdit,
     navigate,
+    //SignUp
+    handleAccept,
+    handleAcceptClick,
+    handleDecelineClick,
     };
 
   // Membuat Global Context State
