@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-gray-900 {
+.overflow-hidden .bg-gray-900 {
     --tw-bg-opacity: 0;
     background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+    backdrop-filter: blur(4px);
   }

@@ -8,7 +8,7 @@ import Table from "../Pages/Dashboard/Table";
 import Home from "../Pages/Dashboard/Home"
 import Default from "../Components/Default/Default";
 import LayoutSidebar from "../Layouts/Sidebar/LayoutSidebar";
-import TableProductManager from "../Components/Table/TableProductManager";
+import TableProductManager from "../Pages/Dashboard/TableProductManager";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
