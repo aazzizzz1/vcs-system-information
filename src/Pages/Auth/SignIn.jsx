@@ -1,10 +1,9 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 //   axios.post(`https://backendexample.sanbersy.com/api/data-contestant`,
 //    {name: input.name},
@@ -38,7 +37,8 @@ const SignIn = () => {
       console.log(res)
       let data  = res.data
       Cookies.set(`token`, data.token, {expires:1})
-      navigate(`/`)
+      window.location.href = '/'; // Redirect to the root URL
+      // navigate(`/`)
     })
     .catch((err) =>{
       // alert(err.response.data.error)
@@ -235,12 +235,12 @@ const SignIn = () => {
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
-                  <Link
-                    to={'/signup'}
+                  <a
+                    href="/signup"
                     className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Sign up
-                  </Link>
+                  </a>
                 </p>
               </form>
             </div>

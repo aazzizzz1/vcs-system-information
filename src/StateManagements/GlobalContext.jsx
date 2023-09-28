@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = (props) => {
-  //State Global
+    //State Global
     let navigate = useNavigate();
 
     const [input, setInput] = useState({

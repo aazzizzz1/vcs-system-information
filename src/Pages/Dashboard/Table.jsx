@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Spinner from "../../Components/Spinner/Spinner";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
+import { Link } from "react-router-dom";
 
 const Table = () => {
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
@@ -31,8 +32,8 @@ const Table = () => {
   }, [fetchData, fetchStatus, setfetchStatus]);
 
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-14 p-4">
-      <div className="flex items-center justify-between py-4 bg-white dark:bg-gray-800">
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="flex items-center justify-between py-4 px-3 bg-white dark:bg-gray-800">
         <div className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
           {/* <button onClick={togglePop}>Create Data</button>
       {seen ? <CreateData toggle={togglePop} /> : null} */}
@@ -234,8 +235,7 @@ const Table = () => {
                     </td>
                     <td className="px-6 py-4">
                       {/* Modal toggle */}
-                      <a
-                        href="ok"
+                      <Link
                         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                         onClick={(e) => handleEdit(e, element.id)}
                         data-user-id={element.id}
@@ -244,7 +244,7 @@ const Table = () => {
                         data-modal-toggle="createdata-modal"
                       >
                         Edit user
-                      </a>
+                      </Link>
                       <a
                         href="ok"
                         className="font-medium text-red-600 dark:text-red-500 hover:underline ml-3"

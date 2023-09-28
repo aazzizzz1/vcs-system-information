@@ -9,6 +9,7 @@ import Home from "../Pages/Dashboard/Home"
 import Default from "../Components/Default/Default";
 import LayoutSidebar from "../Layouts/Sidebar/LayoutSidebar";
 import TableProductManager from "../Pages/Dashboard/TableProductManager";
+import FinalProject from "../Pages/Tugas/FinalProject";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
@@ -73,6 +74,16 @@ const RouteComponents = () => {
             }
           />
           <Route
+            path="/final-project"
+            element={
+              <HomeRoute>
+                <LayoutSidebar>
+                  <FinalProject/>
+                </LayoutSidebar>
+              </HomeRoute>
+            }
+          />
+          <Route
             path="/signin"
             element={
               <SignInRoute>
@@ -80,7 +91,14 @@ const RouteComponents = () => {
               </SignInRoute>
             }
           />
-          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/signup"
+            element={
+              <SignInRoute>
+                <SignUp />
+              </SignInRoute>
+            }
+          />
           <Route path="/coba" element={<LayoutSidebar/>} />
         </Routes>
       </GlobalProvider>

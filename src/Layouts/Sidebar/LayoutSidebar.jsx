@@ -1,9 +1,15 @@
 import Cookies from "js-cookie";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const LayoutSidebar = (props) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+
+    const handleLogout = () => {
+        Cookies.remove("token");
+        window.location.href = "/signin";
+    }
 
   return (
     <div className="antialiased bg-gray-50 dark:bg-gray-900">
@@ -697,27 +703,12 @@ const LayoutSidebar = (props) => {
               <ul
                 className="py-1 text-gray-700 dark:text-gray-300"
                 aria-labelledby="dropdown"
-              >
+                onClick={handleLogout}
+                >
                 <li>
-                <div className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                {!Cookies.get("token") && (
-                        <li>
-                        <Link to={"/signin"}>Login</Link>
-                        </li>
-                    )}
-                    {Cookies.get("token") && (
-                        <li>
-                        <span
-                            onClick={() => {
-                            Cookies.remove("token");
-                            navigate("/signin");
-                            }}
-                        >
-                            Logout
-                        </span>
-                        </li>
-                    )}
-                </div>
+                <Link className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Logout
+                </Link>
                 </li>
               </ul>
             </div>
@@ -761,8 +752,8 @@ const LayoutSidebar = (props) => {
           </form>
           <ul className="space-y-2">
             <li>
-              <Link
-                to={`/`}
+              <a
+                href="/"
                 className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -775,12 +766,12 @@ const LayoutSidebar = (props) => {
                   <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
                   <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                 </svg>
-                <span className="ml-3">Table 1</span>
-              </Link>
+                <span className="ml-3">Dashboard</span>
+              </a>
             </li>
             <li>
-              <Link
-                to={`/table-2`}
+              <a
+                href="/table-2"
                 className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -794,7 +785,7 @@ const LayoutSidebar = (props) => {
                   <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                 </svg>
                 <span className="ml-3">Table 2</span>
-              </Link>
+              </a>
             </li>
             <li>
               <button
@@ -881,7 +872,7 @@ const LayoutSidebar = (props) => {
                   />
                 </svg>
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Sales
+                  Tugas
                 </span>
                 <svg
                   aria-hidden="true"
@@ -900,10 +891,10 @@ const LayoutSidebar = (props) => {
               <ul id="dropdown-sales" className="hidden py-2 space-y-2">
                 <li>
                   <a
-                    href="a"
+                    href="/final-project"
                     className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
-                    Products
+                    Final Project
                   </a>
                 </li>
                 <li>
