@@ -1,72 +1,34 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
-import axios from "axios";
+import SuccessToast from "../../Components/Toast/SuccessToast";
+import ErrorToast from "../../Components/Toast/ErrorToast";
 
 const SignUp = () => {
-
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
   const { state, handleFunction } = useContext(GlobalContext)
 
   //Membuat destructuring dari Global Context
   const {
     termsAccepted,
+    successMessage,
+    errorMessage,
+    inputSignUp,
+    formSubmitted,
     } = state
 
   const {
     handleAccept,
     handleAcceptClick,
     handleDecelineClick,
+    handleInputSignUp,
+    handleSignUp,
     } = handleFunction
-
-    const [inputSignUp, setInputSignUp] = useState({
-      name: "",
-      img_url: "",
-      email: "",
-      password: "",
-      confirm_password: "",
-    });
-
-    const handleInputSignUp = (event) => {
-      let value = event.target.value;
-      let name = event.target.name;
-      setInputSignUp({ ...inputSignUp, [name]: value });
-    }
-
-    const handleSignUp = (event) => {
-      event.preventDefault();
-      let { name, img_url, email, password, confirm_password } = inputSignUp;
-    
-      // Validation check: if any of the fields are empty, show an alert
-      if (!name || !img_url || !email || !password || !confirm_password) {
-        alert("All fields are required. Please fill out all fields.");
-        return;
-      }
-    
-      axios
-        .post("https://dev-example.sanbercloud.com/api/register", {
-          name,
-          img_url,
-          email,
-          password,
-          confirm_password,
-        })
-        .then((res) => {
-          let data = res.data;
-          console.log(data);
-          alert("Success");
-          window.location.href = "/signin";
-        })
-        .catch((err) => {
-          let error = err.response.data;
-          console.log(err.response.data);
-          alert(error);
-        });
-    };
 
   return (
     <>
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 m-40">
+      {successMessage && <SuccessToast message={successMessage} />}
+        {errorMessage && <ErrorToast message={errorMessage} />}
         <a
           href="/"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -83,7 +45,7 @@ const SignUp = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create and account
             </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSignUp}>
+            <form onSubmit={handleSignUp} className="space-y-4 md:space-y-6" >
               <div>
                 <label
                   htmlFor="name"
@@ -99,8 +61,9 @@ const SignUp = () => {
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Abdul Aziz"
-                  required=""
+                  required
                 />
+                {formSubmitted && !inputSignUp.name && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Name is Required</p>}
               </div>
               <div>
                 <label
@@ -117,8 +80,9 @@ const SignUp = () => {
                   id="img_url"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="https://www.google.com"
-                  required=""
+                  required
                 />
+                {formSubmitted && !inputSignUp.img_url && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Images is Required</p>}
               </div>
               <div>
                 <label
@@ -135,8 +99,9 @@ const SignUp = () => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
-                  required=""
+                  required
                 />
+                {formSubmitted && !inputSignUp.email && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Email is Required</p>}
               </div>
               <div>
                 <label
@@ -153,8 +118,9 @@ const SignUp = () => {
                   id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
+                  required
                 />
+                { formSubmitted && inputSignUp.password === inputSignUp.name && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password Can't be the same with usernmae</p>}
               </div>
               <div>
                 <label
@@ -166,13 +132,14 @@ const SignUp = () => {
                 <input
                   value={inputSignUp.confirm_password}
                   onChange={handleInputSignUp}
-                  type="confirm-password"
+                  type="password"
                   name="confirm_password"
                   id="confirm_password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
+                  required
                 />
+                {formSubmitted && inputSignUp.password !== inputSignUp.confirm_password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password Doesn't Match</p>}
               </div>
               <div className="flex items-start">
                 <div className="flex items-center h-5">
@@ -181,7 +148,7 @@ const SignUp = () => {
                     aria-describedby="terms"
                     type="checkbox"
                     className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                    required=""
+                    required
                     checked={termsAccepted}
                     onChange={handleAccept} // Toggle when the checkbox is clicked
                   />
@@ -227,7 +194,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </section>
     {/* Main Terms and Conditions Modal */}
     <div
       id="staticModal"

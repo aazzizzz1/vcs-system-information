@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 const ErrorToast = (props) => {
     const [showToast, setShowToast] = useState(true);
+    const toastRef = useRef(null);
 
     const handleCloseClick = () => {
-    setShowToast(false);
+        setShowToast(false);
     };
 
+    useEffect(() => {
+        // Fokuskan elemen toast saat komponen telah dimount dan showToast adalah true
+        if (showToast && toastRef.current) {
+            toastRef.current.focus();
+        }
+    }, [showToast]);
+
     if (!showToast) {
-    return null; // Do not render the component if showToast is false
+        return null; // Jangan render komponen jika showToast adalah false
     }
 
     return (
     <div
+        ref={toastRef}
+        tabIndex={-1}
         id="toast-danger"
         className="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
         role="alert"

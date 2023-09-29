@@ -1,63 +1,23 @@
-import axios from "axios";
-import Cookies from "js-cookie";
-import React, { useState } from "react";
-// import SuccessAlert from "../../Components/Alert/SuccessAlert";
-// import ErrorAlert from "../../Components/Alert/ErrorAlert";
+import React, { useContext } from "react";
 import SuccessToast from "../../Components/Toast/SuccessToast";
 import ErrorToast from "../../Components/Toast/ErrorToast";
+import { GlobalContext } from "../../StateManagements/GlobalContext";
 
 const SignIn = () => {
-  // const navigate = useNavigate();
+  //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
+  const { state, handleFunction } = useContext(GlobalContext)
 
-//   axios.post(`https://backendexample.sanbersy.com/api/data-contestant`,
-//    {name: input.name},
-//    {headers: {"Authorization" : "Bearer "+ Cookies.get('token')}}
-// )
-// .then(res => {
-//     ....//logicnya
-// })
+  //Membuat destructuring dari Global Context
+  const {
+    inputLogin,
+    successMessage,
+    errorMessage
+    } = state
 
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const [inputLogin, setInputLogin] = useState({
-    email: "",
-    password:"",
-  })
-
-  const handleInputLogin = (event) => {
-    let value = event.target.value
-    let name = event.target.name
-
-    setInputLogin({
-      ...inputLogin, [name]:value
-    })
-  }
-
-  const handleLogin = (event) => {
-    event.preventDefault()
-
-    let {email, password} = inputLogin
-
-    axios.post(`https://dev-example.sanbercloud.com/api/login`, {email, password})
-    .then((res)=>{
-      // console.log(res)
-      let data  = res.data
-      // let sucess = JSON.stringify(data, null, 2);
-      Cookies.set(`token`, data.token, {expires:1})
-      setSuccessMessage("Login successful!"); // Set success message
-      setErrorMessage(""); // Clear error message
-      window.location.href = '/'; // Redirect to the root URL
-      // navigate(`/`)
-    })
-    .catch((err) =>{
-      // stringify error to string and show it on alert
-      let error = JSON.stringify(err.message, null, 2);
-      console.log(err);
-      setErrorMessage(error); // Set error message
-      setSuccessMessage(""); // Clear success message
-    })
-  }
+  const {
+    handleInputLogin,
+    handleLogin
+    } = handleFunction
   
   return (
     <>
