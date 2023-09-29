@@ -1,6 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
+import SuccessAlert from "../../Components/Alert/SuccessAlert";
+import ErrorAlert from "../../Components/Alert/ErrorAlert";
 
 const SignIn = () => {
   // const navigate = useNavigate();
@@ -12,6 +14,9 @@ const SignIn = () => {
 // .then(res => {
 //     ....//logicnya
 // })
+
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [inputLogin, setInputLogin] = useState({
     email: "",
@@ -32,18 +37,23 @@ const SignIn = () => {
 
     let {email, password} = inputLogin
 
-    axios.post(`https://backendexample.sanbersy.com/api/user-login`, {email, password})
+    axios.post(`https://dev-example.sanbercloud.com/api/login`, {email, password})
     .then((res)=>{
-      console.log(res)
+      // console.log(res)
       let data  = res.data
+      // let sucess = JSON.stringify(data, null, 2);
       Cookies.set(`token`, data.token, {expires:1})
+      setSuccessMessage("Login successful!"); // Set success message
+      setErrorMessage(""); // Clear error message
       window.location.href = '/'; // Redirect to the root URL
       // navigate(`/`)
     })
     .catch((err) =>{
-      // alert(err.response.data.error)
-      alert(err.response.data.error)
-      console.log(err)
+      // stringify error to string and show it on alert
+      let error = JSON.stringify(err.message, null, 2);
+      console.log(err);
+      setErrorMessage(error); // Set error message
+      setSuccessMessage(""); // Clear success message
     })
   }
   
@@ -51,6 +61,8 @@ const SignIn = () => {
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        {successMessage && <SuccessAlert message={successMessage} />}
+        {errorMessage && <ErrorAlert message={errorMessage} />}
           <a
             href="a"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -83,7 +95,7 @@ const SignIn = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    required=""
+                    required
                   />
                 </div>
                 <div>
@@ -103,7 +115,7 @@ const SignIn = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     data-popover-target="popover-password"
                     data-popover-placement="right"
-                    required=""
+                    required
                   />
                   <div
                     data-popover=""
@@ -208,7 +220,7 @@ const SignIn = () => {
                         aria-describedby="remember"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                        required=""
+                        required
                       />
                     </div>
                     <div className="ml-3 text-sm">

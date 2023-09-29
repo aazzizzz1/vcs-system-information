@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
+import axios from "axios";
 
 const SignUp = () => {
 
@@ -17,6 +18,50 @@ const SignUp = () => {
     handleDecelineClick,
     } = handleFunction
 
+    const [inputSignUp, setInputSignUp] = useState({
+      name: "",
+      img_url: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+    });
+
+    const handleInputSignUp = (event) => {
+      let value = event.target.value;
+      let name = event.target.name;
+      setInputSignUp({ ...inputSignUp, [name]: value });
+    }
+
+    const handleSignUp = (event) => {
+      event.preventDefault();
+      let { name, img_url, email, password, confirm_password } = inputSignUp;
+    
+      // Validation check: if any of the fields are empty, show an alert
+      if (!name || !img_url || !email || !password || !confirm_password) {
+        alert("All fields are required. Please fill out all fields.");
+        return;
+      }
+    
+      axios
+        .post("https://dev-example.sanbercloud.com/api/register", {
+          name,
+          img_url,
+          email,
+          password,
+          confirm_password,
+        })
+        .then((res) => {
+          let data = res.data;
+          console.log(data);
+          alert("Success");
+          window.location.href = "/signin";
+        })
+        .catch((err) => {
+          let error = err.response.data;
+          console.log(err.response.data);
+          alert(error);
+        });
+    };
 
   return (
     <>
@@ -38,7 +83,43 @@ const SignUp = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create and account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSignUp}>
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Your name
+                </label>
+                <input
+                  value={inputSignUp.name}
+                  onChange={handleInputSignUp}
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Abdul Aziz"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="img_url"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Your image url
+                </label>
+                <input
+                  value={inputSignUp.img_url}
+                  onChange={handleInputSignUp}
+                  type="text"
+                  name="img_url"
+                  id="img_url"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="https://www.google.com"
+                  required=""
+                />
+              </div>
               <div>
                 <label
                   htmlFor="email"
@@ -47,6 +128,8 @@ const SignUp = () => {
                   Your email
                 </label>
                 <input
+                  value={inputSignUp.email}
+                  onChange={handleInputSignUp}
                   type="email"
                   name="email"
                   id="email"
@@ -63,6 +146,8 @@ const SignUp = () => {
                   Password
                 </label>
                 <input
+                  value={inputSignUp.password}
+                  onChange={handleInputSignUp}
                   type="password"
                   name="password"
                   id="password"
@@ -79,9 +164,11 @@ const SignUp = () => {
                   Confirm password
                 </label>
                 <input
+                  value={inputSignUp.confirm_password}
+                  onChange={handleInputSignUp}
                   type="confirm-password"
-                  name="confirm-password"
-                  id="confirm-password"
+                  name="confirm_password"
+                  id="confirm_password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
