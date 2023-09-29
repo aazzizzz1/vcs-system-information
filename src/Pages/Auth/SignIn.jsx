@@ -1,8 +1,10 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
-import SuccessAlert from "../../Components/Alert/SuccessAlert";
-import ErrorAlert from "../../Components/Alert/ErrorAlert";
+// import SuccessAlert from "../../Components/Alert/SuccessAlert";
+// import ErrorAlert from "../../Components/Alert/ErrorAlert";
+import SuccessToast from "../../Components/Toast/SuccessToast";
+import ErrorToast from "../../Components/Toast/ErrorToast";
 
 const SignIn = () => {
   // const navigate = useNavigate();
@@ -61,8 +63,8 @@ const SignIn = () => {
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        {successMessage && <SuccessAlert message={successMessage} />}
-        {errorMessage && <ErrorAlert message={errorMessage} />}
+        {successMessage && <SuccessToast message={successMessage} />}
+        {errorMessage && <ErrorToast message={errorMessage} />}
           <a
             href="a"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
