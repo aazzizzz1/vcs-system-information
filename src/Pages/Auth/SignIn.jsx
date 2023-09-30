@@ -83,11 +83,7 @@ const SignIn = () => {
                   />
                   {formSubmitted && !handleInputLogin.password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password is Required</p>}
                   {formSubmitted && handleInputLogin.password && handleInputLogin.password.length < 8 && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must be at least 8 characters</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 lowercase letter</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[A-Z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 uppercase letter</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[0-9]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 number</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[^a-zA-Z\d]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 symbol</p>}
-                  {formSubmitted && handleInputLogin.password === handleInputLogin.email && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password cannot be the same as username</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/) && !handleInputLogin.password.match(/[A-Z]/) && !handleInputLogin.password.match(/\d/) && !handleInputLogin.password.match(/[^a-zA-Z\d]/) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Invalid password. Password must have at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 symbol</p>}
                   <div
                     data-popover=""
                     id="popover-password"

@@ -120,7 +120,13 @@ const SignUp = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 />
-                { formSubmitted && inputSignUp.password === inputSignUp.name && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password Can't be the same with usernmae</p>}
+                {formSubmitted && !inputSignUp.password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password is Required</p>}
+                {formSubmitted && inputSignUp.password && inputSignUp.password.length < 8 && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must be at least 8 characters</p>}
+                {formSubmitted && inputSignUp.password && inputSignUp.password.length >= 8 && !inputSignUp.password.match(/[a-z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 lowercase letter</p>}
+                {formSubmitted && inputSignUp.password && inputSignUp.password.length >= 8 && !inputSignUp.password.match(/[A-Z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 uppercase letter</p>}
+                {formSubmitted && inputSignUp.password && inputSignUp.password.length >= 8 && !inputSignUp.password.match(/[0-9]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 number</p>}
+                {formSubmitted && inputSignUp.password && inputSignUp.password.length >= 8 && !inputSignUp.password.match(/[^a-zA-Z\d]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 symbol</p>}
+                {formSubmitted && inputSignUp.password === inputSignUp.name && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password cannot be the same as username</p>}
               </div>
               <div>
                 <label
