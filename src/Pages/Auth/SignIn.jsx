@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import SuccessToast from "../../Components/Toast/SuccessToast";
 import ErrorToast from "../../Components/Toast/ErrorToast";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
+import EyeClosedIcon from "../../Assets/EyeClosedIcon";
+import EyeOpenIcon from "../../Assets/EyeOpenIcon";
 
 const SignIn = () => {
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
   const { state, handleFunction } = useContext(GlobalContext)
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const handleTogglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   //Membuat destructuring dari Global Context
   const {
@@ -69,21 +76,33 @@ const SignIn = () => {
                   >
                     Password
                   </label>
+                  <div className="flex items-center justify-between relative"
+                    data-popover-target="popover-password"
+                    data-popover-placement="right"
+                  >
                   <input
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     value={inputLogin.password}
                     onChange={handleInputLogin}
-                    type="password"
+                    type={passwordVisible ? 'text' : 'password'}
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    data-popover-target="popover-password"
-                    data-popover-placement="right"
                     required
                   />
+                  <span
+                    className="absolute inset-y-0 flex items-center right-2 "
+                    onClick={handleTogglePasswordVisibility}
+                  >
+                    {passwordVisible ? <EyeClosedIcon /> :  <EyeOpenIcon />}
+                  </span>
+                  </div>
                   {formSubmitted && !handleInputLogin.password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password is Required</p>}
                   {formSubmitted && handleInputLogin.password && handleInputLogin.password.length < 8 && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must be at least 8 characters</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/) && !handleInputLogin.password.match(/[A-Z]/) && !handleInputLogin.password.match(/\d/) && !handleInputLogin.password.match(/[^a-zA-Z\d]/) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Invalid password. Password must have at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 symbol</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 lowercase letter</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[A-Z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 uppercase letter</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[0-9]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 number</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[^a-zA-Z\d]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 symbol</p>}
                   <div
                     data-popover=""
                     id="popover-password"
