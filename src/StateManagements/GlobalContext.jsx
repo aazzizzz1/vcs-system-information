@@ -9,6 +9,21 @@ export const GlobalProvider = (props) => {
   //SIGN UP
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
 
+  //SignUp
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const handleAccept = () => {
+    setTermsAccepted(!termsAccepted); // Toggle the value true
+  };
+  
+  const handleAcceptClick = () => {
+    setTermsAccepted(true);
+  };
+  
+  const handleDecelineClick = () => {
+    setTermsAccepted(false);
+  };
+
     const [inputSignUp, setInputSignUp] = useState({
       name: "",
       img_url: "",
@@ -295,21 +310,6 @@ export const GlobalProvider = (props) => {
       .catch((err) => {
         alert(err);
       });
-  };
-
-  //SignUp
-  const [termsAccepted, setTermsAccepted] = useState(false);
-
-  const handleAccept = () => {
-    setTermsAccepted(!termsAccepted); // Toggle the value true
-  };
-
-  const handleAcceptClick = () => {
-    setTermsAccepted(true);
-  };
-
-  const handleDecelineClick = () => {
-    setTermsAccepted(false);
   };
 
   //Membuat Variable untuk semua state dan function

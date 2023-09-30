@@ -11,7 +11,8 @@ const SignIn = () => {
   const {
     inputLogin,
     successMessage,
-    errorMessage
+    errorMessage,
+    formSubmitted
     } = state
 
   const {
@@ -59,6 +60,7 @@ const SignIn = () => {
                     placeholder="name@company.com"
                     required
                   />
+                  {formSubmitted && !handleInputLogin.email && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Name is Required</p>}
                 </div>
                 <div>
                   <label
@@ -79,6 +81,13 @@ const SignIn = () => {
                     data-popover-placement="right"
                     required
                   />
+                  {formSubmitted && !handleInputLogin.password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password is Required</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length < 8 && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must be at least 8 characters</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 lowercase letter</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[A-Z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 uppercase letter</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[0-9]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 number</p>}
+                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[^a-zA-Z\d]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 symbol</p>}
+                  {formSubmitted && handleInputLogin.password === handleInputLogin.email && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password cannot be the same as username</p>}
                   <div
                     data-popover=""
                     id="popover-password"
