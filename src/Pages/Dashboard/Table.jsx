@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Table = () => {
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
   const { state, handleFunction } = useContext(GlobalContext)
-
   //Membuat destructuring dari Global Context
   const {
     input,

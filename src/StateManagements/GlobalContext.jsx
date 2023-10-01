@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = (props) => {
+  //State Global
+  let navigate = useNavigate();
+
   //SIGN UP
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -27,70 +30,70 @@ export const GlobalProvider = (props) => {
     setTermsAccepted(false);
   };
 
-    const [inputSignUp, setInputSignUp] = useState({
-      name: "",
-      img_url: "",
-      email: "",
-      password: "",
-      confirm_password: "",
-    });
+  const [inputSignUp, setInputSignUp] = useState({
+    name: "",
+    img_url: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  });
 
-    const handleInputSignUp = (event) => {
-      let value = event.target.value;
-      let name = event.target.name;
-      setInputSignUp({ ...inputSignUp, [name]: value });
+  const handleInputSignUp = (event) => {
+    let value = event.target.value;
+    let name = event.target.name;
+    setInputSignUp({ ...inputSignUp, [name]: value });
+  }
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    setFormSubmitted(true); // Set formSubmitted to true when the form is submitted
+
+    let { name, img_url, email, password, confirm_password } = inputSignUp;
+
+    // Validation check: if any of the fields are empty, show an alert
+    if (!name || !img_url || !email || !password || !confirm_password) {
+      setErrorMessage("All fields are required. Please fill out all fields."); // Set error message
+      setSuccessMessage(""); // Clear success message
+      return;
     }
 
-    const handleSignUp = (event) => {
-      event.preventDefault();
-      setFormSubmitted(true); // Set formSubmitted to true when the form is submitted
+    // Validation check: if passwords do not match, show an alert
+    if (password !== confirm_password) {
+      setErrorMessage("Passwords do not match. Please check your password."); // Set error message
+      setSuccessMessage(""); // Clear success message
+      return;
+    }
 
-      let { name, img_url, email, password, confirm_password } = inputSignUp;
-
-      // Validation check: if any of the fields are empty, show an alert
-      if (!name || !img_url || !email || !password || !confirm_password) {
-        setErrorMessage("All fields are required. Please fill out all fields."); // Set error message
+    // Validation check: if password is the same as the name, show an alert
+    if (password === name) {
+      setErrorMessage("Password cannot be the same as your name."); // Set error message
+      setSuccessMessage(""); // Clear success message
+      return;
+    }
+    
+    axios
+      .post("https://dev-example.sanbercloud.com/api/register", {
+        name,
+        img_url,
+        email,
+        password,
+        confirm_password,
+      })
+      .then((res) => {
+        let data = res.data;
+        console.log(data);
+        setSuccessMessage("Registrasi successful!"); // Set success message
+        setErrorMessage(""); // Clear error message
+        window.location.href = "/signin";
+        // navigate(`/signin`)
+      })
+      .catch((err) => {
+        let error = JSON.stringify(err.response.data , null, 2);
+        console.log(err);
+        setErrorMessage(error); // Set error message
         setSuccessMessage(""); // Clear success message
-        return;
-      }
-
-      // Validation check: if passwords do not match, show an alert
-      if (password !== confirm_password) {
-        setErrorMessage("Passwords do not match. Please check your password."); // Set error message
-        setSuccessMessage(""); // Clear success message
-        return;
-      }
-
-      // Validation check: if password is the same as the name, show an alert
-      if (password === name) {
-        setErrorMessage("Password cannot be the same as your name."); // Set error message
-        setSuccessMessage(""); // Clear success message
-        return;
-      }
-      
-      axios
-        .post("https://dev-example.sanbercloud.com/api/register", {
-          name,
-          img_url,
-          email,
-          password,
-          confirm_password,
-        })
-        .then((res) => {
-          let data = res.data;
-          console.log(data);
-          setSuccessMessage("Registrasi successful!"); // Set success message
-          setErrorMessage(""); // Clear error message
-          // window.location.href = "/signin";
-          navigate(`/signin`)
-        })
-        .catch((err) => {
-          let error = JSON.stringify(err.response.data , null, 2);
-          console.log(err);
-          setErrorMessage(error); // Set error message
-          setSuccessMessage(""); // Clear success message
-        });
-    };
+      });
+  };
 
   //SIGN IN
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -152,21 +155,21 @@ export const GlobalProvider = (props) => {
       });
   };
 
-  //State Global
-  let navigate = useNavigate();
-
+  //Fatch Data Dashboard
   const [input, setInput] = useState({
     name: "",
     course: "",
     score: 0,
   });
+
   const [fetchStatus, setfetchStatus] = useState(true);
+
   // state data
   let [data, setData] = useState(null); //harus memakai state karena react akan merender parameter ini sialisasi terlebih dahulu, disarankan null agar enak pengkondisianya
+
   // Menginputkan Data kedalam form
   const [curretID, setcurrentID] = useState(-1);
 
-  //Function dan Method Global
   //Function Fetch Data
   let fetchData = () => {
     const fetchData = async () => {
@@ -184,25 +187,10 @@ export const GlobalProvider = (props) => {
     };
     fetchData();
     setfetchStatus(false);
-
-    // method fetch data menggunakan then catch
-    // useEffect(()=>{
-    //   axios.get('https://backendexample.sanbercloud.com/api/contestants')
-    //   .then((result)=>{
-    //     let hasil = result.data //Data API
-    //     setData(hasil) //assign data kedalam method setData
-    //     // console.log(result.data); // menganmbil hanya datanya saja akan ada array of object dari API
-    //     // console.log(result); // menampilkan result dari API berupa object asli APInya
-    //   })
-    //   .catch((err)=>{
-    //     console.log(err)
-    //   })
-    // }, [])
-
     // console.log(data) // menampilkan data yang sudah di assign kedalam setData
   };
 
-  // Method Handle Inpur
+  // Method Handle Input
   const handleInput = (events) => {
     let value = events.target.value;
     let name = events.target.name;
@@ -321,27 +309,50 @@ export const GlobalProvider = (props) => {
       });
   };
 
+  // PAGES TUGAS
+  //Final Project
+  let fetchDataFinalProject = () => {
+    const fetchDataFinalProject = async () => {
+      try {
+        const result = await axios.get(
+          "https://dev-example.sanbercloud.com/api/job-vacancy"
+        );
+        let hasil = result.data; // Data API
+        console.log(hasil.data);
+        setData([...hasil.data]);
+        // assign data ke dalam method setData Bisa menggunakan SPREAD OPERATOR atau tidak
+        // console.log(result.data); // mengambil hanya datanya saja akan ada array of object dari API
+        // console.log(result); // menampilkan result dari API berupa object asli APInya
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchDataFinalProject();
+    setfetchStatus(false);
+    // console.log(data) // menampilkan data yang sudah di assign kedalam setData
+  };
+
+  function batasiKata(dasar, jumlahKata) {
+    // Mengubah string menjadi array kata
+    let kata = dasar.split(' ');
+
+    // Memeriksa apakah jumlah kata melebihi batas yang ditentukan
+    if (kata.length > jumlahKata) {
+        // Mengambil hanya sejumlah kata yang diinginkan
+        kata = kata.slice(0, jumlahKata);
+
+        // Menggabungkan kembali array kata menjadi string dan menambahkan titik-titik
+        let hasil = kata.join(' ') + '...';
+        return hasil;
+    }
+
+    // Jika jumlah kata dalam string tidak melebihi batas, mengembalikan string asli
+    return dasar;
+}
+  
   //Membuat Variable untuk semua state dan function
   //Variable Global State
   let state = {
-    input,
-    setInput,
-    fetchStatus,
-    setfetchStatus,
-    data,
-    setData,
-    curretID,
-    setcurrentID,
-
-    //SIGN IN
-    successMessage,
-    setSuccessMessage,
-    errorMessage,
-    setErrorMessage,
-    inputLogin,
-    passwordVisible,
-    setPasswordVisible,
-
     //SignUp
     termsAccepted,
     setTermsAccepted,
@@ -351,23 +362,27 @@ export const GlobalProvider = (props) => {
     setFormSubmitted,
     confirmPasswordVisible,
     setConfirmPasswordVisible,
+    //SIGN IN
+    successMessage,
+    setSuccessMessage,
+    errorMessage,
+    setErrorMessage,
+    inputLogin,
+    passwordVisible,
+    setPasswordVisible,
+    //Data Dashboard
+    input,
+    setInput,
+    fetchStatus,
+    setfetchStatus,
+    data,
+    setData,
+    curretID,
+    setcurrentID,
   };
 
   // Variable Global Function
   let handleFunction = {
-    fetchData,
-    handleInput,
-    handleNilai,
-    handleSubmit,
-    handleDelete,
-    handleEdit,
-    navigate,
-
-    //SIGN IN
-    handleInputLogin,
-    handleLogin,
-    handleTogglePasswordVisibility,
-
     //SignUp
     handleAccept,
     handleAcceptClick,
@@ -375,12 +390,25 @@ export const GlobalProvider = (props) => {
     handleInputSignUp,
     handleSignUp,
     handleToggleConfirmPasswordVisibility,
+    //SIGN IN
+    handleInputLogin,
+    handleLogin,
+    handleTogglePasswordVisibility,
+    //Data Dashboard
+    fetchData,
+    handleInput,
+    handleNilai,
+    handleSubmit,
+    handleDelete,
+    handleEdit,
+    navigate,
+    //Final Project
+    fetchDataFinalProject,
+    batasiKata,
   };
-
   // Membuat Global Context State
   return (
-    //Destructuring
-    //mengirimkan state dan function yang akan di gunakan komponen lain
+    //Destructuring mengirimkan state dan function yang akan di gunakan komponen lain
     <GlobalContext.Provider
       value={{
         state,
