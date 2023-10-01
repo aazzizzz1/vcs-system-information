@@ -81,7 +81,8 @@ export const GlobalProvider = (props) => {
           console.log(data);
           setSuccessMessage("Registrasi successful!"); // Set success message
           setErrorMessage(""); // Clear error message
-          window.location.href = "/signin";
+          // window.location.href = "/signin";
+          navigate(`/signin`)
         })
         .catch((err) => {
           let error = JSON.stringify(err.response.data , null, 2);
