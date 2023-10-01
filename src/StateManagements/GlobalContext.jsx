@@ -8,9 +8,12 @@ export const GlobalContext = createContext();
 export const GlobalProvider = (props) => {
   //SIGN UP
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
-
-  //SignUp
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
+  const handleToggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible(!confirmPasswordVisible);
+  };
 
   const handleAccept = () => {
     setTermsAccepted(!termsAccepted); // Toggle the value true
@@ -89,6 +92,7 @@ export const GlobalProvider = (props) => {
     };
 
   //SIGN IN
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -96,6 +100,10 @@ export const GlobalProvider = (props) => {
     email: "",
     password: "",
   });
+
+  const handleTogglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const handleInputLogin = (event) => {
     let value = event.target.value;
@@ -323,12 +331,15 @@ export const GlobalProvider = (props) => {
     setData,
     curretID,
     setcurrentID,
+
     //SIGN IN
     successMessage,
     setSuccessMessage,
     errorMessage,
     setErrorMessage,
     inputLogin,
+    passwordVisible,
+    setPasswordVisible,
 
     //SignUp
     termsAccepted,
@@ -337,7 +348,8 @@ export const GlobalProvider = (props) => {
     setInputSignUp,
     formSubmitted,
     setFormSubmitted,
-
+    confirmPasswordVisible,
+    setConfirmPasswordVisible,
   };
 
   // Variable Global Function
@@ -349,9 +361,11 @@ export const GlobalProvider = (props) => {
     handleDelete,
     handleEdit,
     navigate,
+
     //SIGN IN
     handleInputLogin,
     handleLogin,
+    handleTogglePasswordVisibility,
 
     //SignUp
     handleAccept,
@@ -359,7 +373,7 @@ export const GlobalProvider = (props) => {
     handleDecelineClick,
     handleInputSignUp,
     handleSignUp,
-
+    handleToggleConfirmPasswordVisibility,
   };
 
   // Membuat Global Context State

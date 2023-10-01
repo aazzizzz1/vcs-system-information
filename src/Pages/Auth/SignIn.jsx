@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import SuccessToast from "../../Components/Toast/SuccessToast";
 import ErrorToast from "../../Components/Toast/ErrorToast";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
@@ -7,32 +7,25 @@ import EyeOpenIcon from "../../Assets/EyeOpenIcon";
 
 const SignIn = () => {
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
-  const { state, handleFunction } = useContext(GlobalContext)
-  const [passwordVisible, setPasswordVisible] = useState(false);
-
-  const handleTogglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
+  const { state, handleFunction } = useContext(GlobalContext);
   //Membuat destructuring dari Global Context
   const {
     inputLogin,
     successMessage,
     errorMessage,
-    formSubmitted
-    } = state
+    formSubmitted,
+    passwordVisible,
+  } = state;
 
-  const {
-    handleInputLogin,
-    handleLogin
-    } = handleFunction
-  
+  const { handleInputLogin, handleLogin, handleTogglePasswordVisibility } =
+    handleFunction;
+
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        {successMessage && <SuccessToast message={successMessage} />}
-        {errorMessage && <ErrorToast message={errorMessage} />}
+          {successMessage && <SuccessToast message={successMessage} />}
+          {errorMessage && <ErrorToast message={errorMessage} />}
           <a
             href="a"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -49,7 +42,11 @@ const SignIn = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
+              <form
+                onSubmit={handleLogin}
+                className="space-y-4 md:space-y-6"
+                action="#"
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -67,7 +64,12 @@ const SignIn = () => {
                     placeholder="name@company.com"
                     required
                   />
-                  {formSubmitted && !handleInputLogin.email && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Name is Required</p>}
+                  {formSubmitted && !handleInputLogin.email && (
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                      <span class="font-medium">Oh, snapp!</span> Name is
+                      Required
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -76,127 +78,78 @@ const SignIn = () => {
                   >
                     Password
                   </label>
-                  <div className="flex items-center justify-between relative"
+                  <div
+                    className="flex items-center justify-between relative"
                     data-popover-target="popover-password"
                     data-popover-placement="right"
                   >
-                  <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={inputLogin.password}
-                    onChange={handleInputLogin}
-                    type={passwordVisible ? 'text' : 'password'}
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    required
-                  />
-                  <span
-                    className="absolute inset-y-0 flex items-center right-2 "
-                    onClick={handleTogglePasswordVisibility}
-                  >
-                    {passwordVisible ? <EyeClosedIcon /> :  <EyeOpenIcon />}
-                  </span>
+                    <input
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      value={inputLogin.password}
+                      onChange={handleInputLogin}
+                      type={passwordVisible ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      placeholder="••••••••"
+                      required
+                    />
+                    <span
+                      className="absolute inset-y-0 flex items-center right-2 "
+                      onClick={handleTogglePasswordVisibility}
+                    >
+                      {passwordVisible ? <EyeClosedIcon /> : <EyeOpenIcon />}
+                    </span>
                   </div>
-                  {formSubmitted && !handleInputLogin.password && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password is Required</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length < 8 && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must be at least 8 characters</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[a-z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 lowercase letter</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[A-Z]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 uppercase letter</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[0-9]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 number</p>}
-                  {formSubmitted && handleInputLogin.password && handleInputLogin.password.length >= 8 && !handleInputLogin.password.match(/[^a-zA-Z\d]/g) && <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Password must have at least 1 symbol</p>}
-                  <div
-                    data-popover=""
-                    id="popover-password"
-                    role="tooltip"
-                    className="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
-                  >
-                    <div className="p-3 space-y-2">
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
-                        Must have at least 8 characters
-                      </h3>
-                      <div className="grid grid-cols-4 gap-2">
-                        <div className="h-1 bg-orange-300 dark:bg-orange-400" />
-                        <div className="h-1 bg-orange-300 dark:bg-orange-400" />
-                        <div className="h-1 bg-gray-200 dark:bg-gray-600" />
-                        <div className="h-1 bg-gray-200 dark:bg-gray-600" />
-                      </div>
-                      <p>It’s better to have:</p>
-                      <ul>
-                        <li className="flex items-center mb-1">
-                          <svg
-                            className="w-3.5 h-3.5 mr-2 text-green-400 dark:text-green-500"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 16 12"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M1 5.917 5.724 10.5 15 1.5"
-                            />
-                          </svg>
-                          Upper &amp; lower case letters
-                        </li>
-                        <li className="flex items-center mb-1">
-                          <svg
-                            className="w-3.5 h-3.5 mr-2 text-green-400 dark:text-green-500"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 16 12"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M1 5.917 5.724 10.5 15 1.5"
-                            />
-                          </svg>
-                          Must have at least 1 number
-                        </li>
-                        <li className="flex items-center mb-1">
-                          <svg
-                            className="w-3 h-3 mr-2.5 text-gray-300 dark:text-gray-400"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 14"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                            />
-                          </svg>
-                          Must have at least 1 symbol (#$&amp;)
-                        </li>
-                        <li className="flex items-center">
-                          <svg
-                            className="w-3 h-3 mr-2.5 text-gray-300 dark:text-gray-400"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 14"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                            />
-                          </svg>
-                          password cannot be the same as username
-                        </li>
-                      </ul>
-                    </div>
-                    <div data-popper-arrow="" />
-                  </div>
+                  {formSubmitted && !handleInputLogin.password && (
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                      <span class="font-medium">Oh, snapp!</span> Password is
+                      Required
+                    </p>
+                  )}
+                  {formSubmitted &&
+                    handleInputLogin.password &&
+                    handleInputLogin.password.length < 8 && (
+                      <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Password
+                        must be at least 8 characters
+                      </p>
+                    )}
+                  {formSubmitted &&
+                    handleInputLogin.password &&
+                    handleInputLogin.password.length >= 8 &&
+                    !handleInputLogin.password.match(/[a-z]/g) && (
+                      <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Password
+                        must have at least 1 lowercase letter
+                      </p>
+                    )}
+                  {formSubmitted &&
+                    handleInputLogin.password &&
+                    handleInputLogin.password.length >= 8 &&
+                    !handleInputLogin.password.match(/[A-Z]/g) && (
+                      <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Password
+                        must have at least 1 uppercase letter
+                      </p>
+                    )}
+                  {formSubmitted &&
+                    handleInputLogin.password &&
+                    handleInputLogin.password.length >= 8 &&
+                    !handleInputLogin.password.match(/[0-9]/g) && (
+                      <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Password
+                        must have at least 1 number
+                      </p>
+                    )}
+                  {formSubmitted &&
+                    handleInputLogin.password &&
+                    handleInputLogin.password.length >= 8 &&
+                    !handleInputLogin.password.match(/[^a-zA-Z\d]/g) && (
+                      <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Password
+                        must have at least 1 symbol
+                      </p>
+                    )}
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
@@ -245,6 +198,102 @@ const SignIn = () => {
           </div>
         </div>
       </section>
+
+      {/* Popover */}
+      <div
+        data-popover=""
+        id="popover-password"
+        role="tooltip"
+        className="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
+      >
+        <div className="p-3 space-y-2">
+          <h3 className="font-semibold text-gray-900 dark:text-white">
+            Must have at least 8 characters
+          </h3>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="h-1 bg-orange-300 dark:bg-orange-400" />
+            <div className="h-1 bg-orange-300 dark:bg-orange-400" />
+            <div className="h-1 bg-gray-200 dark:bg-gray-600" />
+            <div className="h-1 bg-gray-200 dark:bg-gray-600" />
+          </div>
+          <p>It’s better to have:</p>
+          <ul>
+            <li className="flex items-center mb-1">
+              <svg
+                className="w-3.5 h-3.5 mr-2 text-green-400 dark:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+              Upper &amp; lower case letters
+            </li>
+            <li className="flex items-center mb-1">
+              <svg
+                className="w-3.5 h-3.5 mr-2 text-green-400 dark:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+              Must have at least 1 number
+            </li>
+            <li className="flex items-center mb-1">
+              <svg
+                className="w-3 h-3 mr-2.5 text-gray-300 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              Must have at least 1 symbol (#$&amp;)
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="w-3 h-3 mr-2.5 text-gray-300 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              password cannot be the same as username
+            </li>
+          </ul>
+        </div>
+        <div data-popper-arrow="" />
+      </div>
     </>
   );
 };
