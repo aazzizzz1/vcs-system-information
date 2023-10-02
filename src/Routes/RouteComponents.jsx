@@ -10,6 +10,7 @@ import Default from "../Components/Default/Default";
 import LayoutSidebar from "../Layouts/Sidebar/LayoutSidebar";
 import TableProductManager from "../Pages/Dashboard/TableProductManager";
 import FinalProject from "../Pages/Tugas/FinalProject";
+import KanbanTable from "../Pages/Tugas/KanbanTable";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
@@ -79,6 +80,16 @@ const RouteComponents = () => {
               <HomeRoute>
                 <LayoutSidebar>
                   <FinalProject/>
+                </LayoutSidebar>
+              </HomeRoute>
+            }
+          />
+          <Route
+            path="/kanban"
+            element={
+              <HomeRoute>
+                <LayoutSidebar>
+                  <KanbanTable/>
                 </LayoutSidebar>
               </HomeRoute>
             }

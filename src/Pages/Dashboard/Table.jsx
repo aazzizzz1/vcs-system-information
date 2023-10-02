@@ -9,7 +9,8 @@ const Table = () => {
   //Membuat destructuring dari Global Context
   const {
     input,
-    fetchStatus, setfetchStatus,
+    fetchStatus, 
+    setfetchStatus,
     data,
     curretID,
     } = state
@@ -175,9 +176,10 @@ const Table = () => {
         </thead>
         {/* Body Tabel */}
         {/* Fetch Data */}
+        {fetchStatus && <Spinner />}
         {data == null && (
           <>
-            <Spinner />
+            <span>tidak ada data yang ditampilkan</span>
           </>
         )}
         {data?.map((element) => {
@@ -305,7 +307,7 @@ const Table = () => {
                     value={input.name}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     placeholder="Abdul Aziz"
-                    required=""
+                    required
                   />
                 </div>
                 {/* {input.name} melihat inputan */}

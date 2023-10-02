@@ -155,13 +155,6 @@ export const GlobalProvider = (props) => {
       });
   };
 
-  //Fatch Data Dashboard
-  const [input, setInput] = useState({
-    name: "",
-    course: "",
-    score: 0,
-  });
-
   const [fetchStatus, setfetchStatus] = useState(true);
 
   // state data
@@ -189,6 +182,13 @@ export const GlobalProvider = (props) => {
     setfetchStatus(false);
     // console.log(data) // menampilkan data yang sudah di assign kedalam setData
   };
+
+  //Fatch Data Dashboard
+  const [input, setInput] = useState({
+    name: "",
+    course: "",
+    score: 0,
+  });
 
   // Method Handle Input
   const handleInput = (events) => {
@@ -349,6 +349,154 @@ export const GlobalProvider = (props) => {
     // Jika jumlah kata dalam string tidak melebihi batas, mengembalikan string asli
     return dasar;
 }
+
+  // Create Data Tugas
+  const [inputFinalProject, setInputFinalProject] = useState({
+    title: "",
+    job_description: "",
+    job_qualification: "",
+    job_type: "",
+    job_tenure: "",
+    job_status: 0,
+    company_name: "",
+    company_image_url: "",
+    company_city: "",
+    salary_min: 0,
+    salary_max: 0,
+  });
+
+  const handleInputFinalProject = (events) => {
+    let value = events.target.value;
+    let name = events.target.name;
+    // console.log(`${name}, ${score}, ${course}, ${value}`)
+
+    if (name === "title") {
+      setInputFinalProject({ ...inputFinalProject, title: value });
+    } else if (name === "job_description") {
+      setInputFinalProject({ ...inputFinalProject, job_description: value });
+    } else if (name === "job_qualification") {
+      setInputFinalProject({ ...inputFinalProject, job_qualification: value });
+    } else if (name === "job_type") {
+      setInputFinalProject({ ...inputFinalProject, job_type: value });
+    } else if (name === "job_tenure") {
+      setInputFinalProject({ ...inputFinalProject, job_tenure: value });
+    } else if (name === "job_status") {
+      setInputFinalProject({ ...inputFinalProject, job_status: value });
+    } else if (name === "company_name") {
+      setInputFinalProject({ ...inputFinalProject, company_name: value });
+    } else if (name === "company_image_url") {
+      setInputFinalProject({ ...inputFinalProject, company_image_url: value });
+    } else if (name === "company_city") {
+      setInputFinalProject({ ...inputFinalProject, company_city: value });
+    } else if (name === "salary_min") {
+      setInputFinalProject({ ...inputFinalProject, salary_min: value });
+    } else if (name === "salary_max") {
+      setInputFinalProject({ ...inputFinalProject, salary_max: value });
+    } 
+  };
+
+  // Create Data Function
+  const handleCreateDataFinalProject = (events) => {
+  events.preventDefault();
+  const { title, job_description, job_qualification, job_type, job_tenure, job_status, company_name, company_image_url, company_city, salary_min, salary_max } = inputFinalProject;
+  const token = Cookies.get('token'); // Mengambil token dari Cookies
+
+  // Menambahkan token ke header permintaan
+  const headers = {
+    "Authorization": `Bearer ${token}`
+  };
+
+  axios
+    .post("https://dev-example.sanbercloud.com/api/job-vacancy", {
+      title,
+      job_description,
+      job_qualification,
+      job_type,
+      job_tenure,
+      job_status,
+      company_name,
+      company_image_url,
+      company_city,
+      salary_min,
+      salary_max,
+    }, { headers }) // Menambahkan headers ke permintaan
+    .then((result) => {
+      console.log(result);
+      setfetchStatus(true);
+      // window.location.href = "/kanban";
+      // navigate("/");
+    })
+    .catch((error) => {
+      console.log(error)
+      alert(error);
+    });
+
+  // Reset input to default values
+  setInputFinalProject({
+    title: "",
+    job_description: "",
+    job_qualification: "",
+    job_type: "",
+    job_tenure: "",
+    job_status: 0,
+    company_name: "",
+    company_image_url: "",
+    company_city: "",
+    salary_min: 0,
+    salary_max: 0,
+  });
+};
+
+// Edit Data Function
+const handleEditDataFinalProject = (events, id) => {
+  events.preventDefault();
+  const { title, job_description, job_qualification, job_type, job_tenure, job_status, company_name, company_image_url, company_city, salary_min, salary_max } = inputFinalProject;
+  const token = Cookies.get('token'); // Mengambil token dari Cookies
+  const headers = {
+    "Authorization": `Bearer ${token}`
+  };
+  axios
+    .put(
+      `https://dev-example.sanbercloud.com/api/job-vacancy/${id}`,
+      {
+        title,
+        job_description,
+        job_qualification,
+        job_type,
+        job_tenure,
+        job_status,
+        company_name,
+        company_image_url,
+        company_city,
+        salary_min,
+        salary_max,
+      }, { headers
+      }
+    )
+    .then((result) => {
+      console.log(result);
+      setfetchStatus(true);
+    })
+    .catch((error) => {
+      alert(error);
+    });
+
+  // Reset input to default values
+  setInput({
+    title: "",
+    job_description: "",
+    job_qualification: "",
+    job_type: "",
+    job_tenure: "",
+    job_status: 0,
+    company_name: "",
+    company_image_url: "",
+    company_city: "",
+    salary_min: 0,
+    salary_max: 0,
+  });
+};
+
   
   //Membuat Variable untuk semua state dan function
   //Variable Global State
@@ -379,6 +527,9 @@ export const GlobalProvider = (props) => {
     setData,
     curretID,
     setcurrentID,
+    //Final Project
+    inputFinalProject,
+    setInputFinalProject,
   };
 
   // Variable Global Function
@@ -405,6 +556,9 @@ export const GlobalProvider = (props) => {
     //Final Project
     fetchDataFinalProject,
     batasiKata,
+    handleInputFinalProject,
+    handleCreateDataFinalProject,
+    handleEditDataFinalProject,
   };
   // Membuat Global Context State
   return (
