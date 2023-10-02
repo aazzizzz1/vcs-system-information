@@ -423,7 +423,7 @@ export const GlobalProvider = (props) => {
     .then((result) => {
       console.log(result);
       setfetchStatus(true);
-      // window.location.href = "/kanban";
+      window.location.href = "/kanban";
       // navigate("/");
     })
     .catch((error) => {

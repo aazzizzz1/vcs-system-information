@@ -1378,7 +1378,6 @@ const KanbanTable = () => {
                     required
                   />
                 </div>
-                {/* {inputFinalProject.title} */}
                 <div>
                   <label htmlFor="job_description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Job Description
