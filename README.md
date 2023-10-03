@@ -68,3 +68,78 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# VCS Server
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Create .env file that contains your database setting such as hostname, username, password, database name, and secret key for authentication purpose.
+
+.env.development
+
+```
+VITE_API_SERVER = http://localhost:8000/api/
+VITE_SOCKET_SERVER = http://localhost:3001
+VITE_SECRET_KEY = vocs-server-secret-key
+```
+
+.env.production
+
+```
+VITE_API_SERVER = http://172.16.6.117:8000/api/
+VITE_SOCKET_SERVER = http://172.16.6.117:3001
+VITE_SECRET_KEY = vocs-server-secret-key
+```
+
+### Installing
+
+Clone this repository and run the following command
+
+```
+npm install
+```
+
+After all packages installed, place the .env files on this app folder. The directory should be like this
+
+```
+├── .env
+├── package-lock.json
+├── package.json
+└── src
+    ├── assets
+    ├── components
+    ├── config
+    ├── pages
+    ├── utils
+    ├── App.jsx
+    ├── main.jsx
+    └── index.scss
+```
+
+## Running the application
+
+```
+npm run dev
+```
+
+## Running test
+
+```
+npm run test
+```
+
+## Built with
+
+- [React](https://react.dev/) - The library for web and native user interfaces
+- [Tailwind](https://tailwindcss.com/) - CSS framework
+- [Redux](https://redux.js.org/) - State management library
+- [Vite](https://vitejs.dev/) - Module bundler
+- [JWT](https://jwt.io/) - JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+- [Socket.IO](https://socket.io//) - Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
+- [Formik](https://formik.org/) - Library for creating Form elements
+- [Yup](https://github.com/jquense/yup) - a schema builder for runtime value parsing and validation
