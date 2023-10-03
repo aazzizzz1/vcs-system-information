@@ -10,7 +10,8 @@ import Default from "../Components/Default/Default";
 import LayoutSidebar from "../Layouts/Sidebar/LayoutSidebar";
 import TableProductManager from "../Pages/Dashboard/TableProductManager";
 import FinalProject from "../Pages/Tugas/FinalProject";
-import KanbanTable from "../Pages/Tugas/KanbanTable";
+import KanbanTable from "../Pages/Tugas/Kanban/KanbanTable";
+import CobaPagination from "../Pages/Coba/Pagination/CobaPagination";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
@@ -110,7 +111,7 @@ const RouteComponents = () => {
               </SignInRoute>
             }
           />
-          <Route path="/coba" element={<LayoutSidebar/>} />
+          <Route path="/coba" element={<CobaPagination/>} />
         </Routes>
       </GlobalProvider>
       </BrowserRouter>

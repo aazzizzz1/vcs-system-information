@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { GlobalContext } from "../../StateManagements/GlobalContext";
-import Spinner from "../../Components/Spinner/Spinner";
+import { GlobalContext } from "../../../StateManagements/GlobalContext";
+import Spinner from "../../../Components/Spinner/Spinner";
 
 const KanbanTable = () => {
   // Destructuring state and functions from the context
@@ -1034,7 +1034,7 @@ const KanbanTable = () => {
                           <input
                             id="checkbox-table-search-1"
                             type="checkbox"
-                            onclick="event.stopPropagation()"
+                            onClick="event.stopPropagation()"
                             className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                           />
                           <label

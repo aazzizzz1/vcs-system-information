@@ -310,6 +310,25 @@ export const GlobalProvider = (props) => {
   };
 
   // PAGES TUGAS
+  //Kanban
+  const [jobs, setJobs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+const fetchJobs = async (page) => {
+    const response = await fetch(`https://dev-example.sanbercloud.com/api/job-vacancy?page=${page}`);
+    const data = await response.json();
+    setJobs(data.data);
+    setTotalPages(data.last_page);
+};
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+
+
   //Final Project
   let fetchDataFinalProject = () => {
     const fetchDataFinalProject = async () => {
@@ -530,6 +549,10 @@ const handleEditDataFinalProject = (events, id) => {
     //Final Project
     inputFinalProject,
     setInputFinalProject,
+    //Kanban
+    jobs,
+    currentPage,
+    totalPages,
   };
 
   // Variable Global Function
@@ -559,6 +582,9 @@ const handleEditDataFinalProject = (events, id) => {
     handleInputFinalProject,
     handleCreateDataFinalProject,
     handleEditDataFinalProject,
+    //Kanban
+    fetchJobs,
+    handlePageChange,
   };
   // Membuat Global Context State
   return (
