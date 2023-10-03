@@ -1,23 +1,117 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../../StateManagements/GlobalContext";
 import Spinner from "../../../Components/Spinner/Spinner";
+import Pagination from "./Pagination";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const KanbanTable = () => {
   // Destructuring state and functions from the context
   const { state, handleFunction } = useContext(GlobalContext);
-  const { fetchStatus, setfetchStatus, data, inputFinalProject, } = state;
+  const { inputFinalProject, setInputFinalProject  } = state;
 
-  const { fetchDataFinalProject, batasiKata, handleInputFinalProject,
-    handleCreateDataFinalProject,
+  const { batasiKata, handleInputFinalProject
     // handleEditDataFinalProject,
    } = handleFunction;
 
-  // Fetch Data using useEffect
-  useEffect(() => {
-    if (fetchStatus === true) {
-      fetchDataFinalProject();
-    }
-  }, [fetchDataFinalProject, fetchStatus, setfetchStatus]);
+   const [jobs, setJobs] = useState([]);
+   const [currentPage, setCurrentPage] = useState(1);
+   const [totalPages, setTotalPages] = useState(1);
+   const [fetchStatus, setFetchStatus] = useState(true); // State to manage fetch status
+ 
+   useEffect(() => {
+     if (fetchStatus) {
+       fetchJobs(currentPage); // Fetch jobs when fetchStatus is true
+       setFetchStatus(false); // Set fetchStatus to false after fetching data
+     }
+   }, [fetchStatus, currentPage]); // Run this effect when fetchStatus or currentPage changes
+ 
+   const fetchJobs = async (page) => {
+     try {
+       const response = await axios.get(
+         `https://dev-example.sanbercloud.com/api/job-vacancy?page=${page}`
+       );
+       let data = response.data;
+       setJobs(data.data);
+       setTotalPages(data.last_page);
+     } catch (error) {
+       console.log(error);
+       alert(error);
+     }
+   };
+ 
+   const handlePageChange = (pageNumber) => {
+     setCurrentPage(pageNumber);
+     setFetchStatus(true); // Set fetchStatus to true when page changes to fetch new data
+   };
+
+   // Create Data Function
+  const handleCreateDataFinalProject = (events) => {
+    events.preventDefault();
+    const {
+      title,
+      job_description,
+      job_qualification,
+      job_type,
+      job_tenure,
+      job_status,
+      company_name,
+      company_image_url,
+      company_city,
+      salary_min,
+      salary_max,
+    } = inputFinalProject;
+    const token = Cookies.get("token"); // Mengambil token dari Cookies
+
+    // Menambahkan token ke header permintaan
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    axios
+      .post(
+        "https://dev-example.sanbercloud.com/api/job-vacancy",
+        {
+          title,
+          job_description,
+          job_qualification,
+          job_type,
+          job_tenure,
+          job_status,
+          company_name,
+          company_image_url,
+          company_city,
+          salary_min,
+          salary_max,
+        },
+        { headers }
+      ) // Menambahkan headers ke permintaan
+      .then((result) => {
+        console.log(result);
+        setFetchStatus(true);
+        // window.location.href = "/kanban";
+        // navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error);
+      });
+
+    // Reset input to default values
+    setInputFinalProject({
+      title: "",
+      job_description: "",
+      job_qualification: "",
+      job_type: "",
+      job_tenure: "",
+      job_status: 0,
+      company_name: "",
+      company_image_url: "",
+      company_city: "",
+      salary_min: 0,
+      salary_max: 0,
+    });
+  };
 
   return (
     <>
@@ -1024,7 +1118,7 @@ const KanbanTable = () => {
                 </thead>
                 {fetchStatus && <Spinner />}
                 <tbody>
-                  {data?.map((element) => (
+                  {jobs?.map((element) => (
                     <tr
                       key={element.id}
                       className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -1217,106 +1311,8 @@ const KanbanTable = () => {
                 </tbody>
               </table>
             </div>
-            <nav
-              className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
-              aria-label="Table navigation"
-            >
-              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                Showing
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  1-10
-                </span>
-                of
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  1000
-                </span>
-              </span>
-              <ul className="inline-flex items-stretch -space-x-px">
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    <span className="sr-only">Previous</span>
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    2
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    aria-current="page"
-                    className="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-blue-600 bg-blue-50 border border-blue-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                  >
-                    3
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    ...
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    100
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="a"
-                    className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    <span className="sr-only">Next</span>
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            {/* Pagination */}
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
           </div>
         </div>
       </section>

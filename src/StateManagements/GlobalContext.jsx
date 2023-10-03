@@ -21,11 +21,11 @@ export const GlobalProvider = (props) => {
   const handleAccept = () => {
     setTermsAccepted(!termsAccepted); // Toggle the value true
   };
-  
+
   const handleAcceptClick = () => {
     setTermsAccepted(true);
   };
-  
+
   const handleDecelineClick = () => {
     setTermsAccepted(false);
   };
@@ -42,7 +42,7 @@ export const GlobalProvider = (props) => {
     let value = event.target.value;
     let name = event.target.name;
     setInputSignUp({ ...inputSignUp, [name]: value });
-  }
+  };
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -70,7 +70,7 @@ export const GlobalProvider = (props) => {
       setSuccessMessage(""); // Clear success message
       return;
     }
-    
+
     axios
       .post("https://dev-example.sanbercloud.com/api/register", {
         name,
@@ -88,7 +88,7 @@ export const GlobalProvider = (props) => {
         // navigate(`/signin`)
       })
       .catch((err) => {
-        let error = JSON.stringify(err.response.data , null, 2);
+        let error = JSON.stringify(err.response.data, null, 2);
         console.log(err);
         setErrorMessage(error); // Set error message
         setSuccessMessage(""); // Clear success message
@@ -180,7 +180,7 @@ export const GlobalProvider = (props) => {
     };
     fetchData();
     setfetchStatus(false);
-    // console.log(data) // menampilkan data yang sudah di assign kedalam setData
+    console.log(data) // menampilkan data yang sudah di assign kedalam setData
   };
 
   //Fatch Data Dashboard
@@ -315,19 +315,28 @@ export const GlobalProvider = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-const fetchJobs = async (page) => {
-    const response = await fetch(`https://dev-example.sanbercloud.com/api/job-vacancy?page=${page}`);
-    const data = await response.json();
-    setJobs(data.data);
-    setTotalPages(data.last_page);
-};
+  let fetchJobs = () => {
+    const fetchJobs = async (page) => {
+      try {
+        const response = await axios.get(
+          `https://dev-example.sanbercloud.com/api/job-vacancy?page=${page}`
+        );
+        let data = response.data;
+        setJobs(data.data);
+        setTotalPages(data.last_page);
+      } catch (error) {
+        console.log(error);
+        alert(error);
+      }
+    };
+    fetchJobs(currentPage);
+    setfetchStatus(false);
+    console.log(jobs);
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-
-
 
   //Final Project
   let fetchDataFinalProject = () => {
@@ -352,6 +361,11 @@ const fetchJobs = async (page) => {
   };
 
   function batasiKata(dasar, jumlahKata) {
+    // Check if dasar is null or undefined
+    if (dasar === null || dasar === undefined) {
+        return 'Invalid input'; // Or any appropriate default value or error message
+    }
+
     // Mengubah string menjadi array kata
     let kata = dasar.split(' ');
 
@@ -368,6 +382,7 @@ const fetchJobs = async (page) => {
     // Jika jumlah kata dalam string tidak melebihi batas, mengembalikan string asli
     return dasar;
 }
+
 
   // Create Data Tugas
   const [inputFinalProject, setInputFinalProject] = useState({
@@ -411,22 +426,13 @@ const fetchJobs = async (page) => {
       setInputFinalProject({ ...inputFinalProject, salary_min: value });
     } else if (name === "salary_max") {
       setInputFinalProject({ ...inputFinalProject, salary_max: value });
-    } 
+    }
   };
 
   // Create Data Function
   const handleCreateDataFinalProject = (events) => {
-  events.preventDefault();
-  const { title, job_description, job_qualification, job_type, job_tenure, job_status, company_name, company_image_url, company_city, salary_min, salary_max } = inputFinalProject;
-  const token = Cookies.get('token'); // Mengambil token dari Cookies
-
-  // Menambahkan token ke header permintaan
-  const headers = {
-    "Authorization": `Bearer ${token}`
-  };
-
-  axios
-    .post("https://dev-example.sanbercloud.com/api/job-vacancy", {
+    events.preventDefault();
+    const {
       title,
       job_description,
       job_qualification,
@@ -438,85 +444,121 @@ const fetchJobs = async (page) => {
       company_city,
       salary_min,
       salary_max,
-    }, { headers }) // Menambahkan headers ke permintaan
-    .then((result) => {
-      console.log(result);
-      setfetchStatus(true);
-      window.location.href = "/kanban";
-      // navigate("/");
-    })
-    .catch((error) => {
-      console.log(error)
-      alert(error);
+    } = inputFinalProject;
+    const token = Cookies.get("token"); // Mengambil token dari Cookies
+
+    // Menambahkan token ke header permintaan
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    axios
+      .post(
+        "https://dev-example.sanbercloud.com/api/job-vacancy",
+        {
+          title,
+          job_description,
+          job_qualification,
+          job_type,
+          job_tenure,
+          job_status,
+          company_name,
+          company_image_url,
+          company_city,
+          salary_min,
+          salary_max,
+        },
+        { headers }
+      ) // Menambahkan headers ke permintaan
+      .then((result) => {
+        console.log(result);
+        setfetchStatus(true);
+        // window.location.href = "/kanban";
+        // navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error);
+      });
+
+    // Reset input to default values
+    setInputFinalProject({
+      title: "",
+      job_description: "",
+      job_qualification: "",
+      job_type: "",
+      job_tenure: "",
+      job_status: 0,
+      company_name: "",
+      company_image_url: "",
+      company_city: "",
+      salary_min: 0,
+      salary_max: 0,
     });
-
-  // Reset input to default values
-  setInputFinalProject({
-    title: "",
-    job_description: "",
-    job_qualification: "",
-    job_type: "",
-    job_tenure: "",
-    job_status: 0,
-    company_name: "",
-    company_image_url: "",
-    company_city: "",
-    salary_min: 0,
-    salary_max: 0,
-  });
-};
-
-// Edit Data Function
-const handleEditDataFinalProject = (events, id) => {
-  events.preventDefault();
-  const { title, job_description, job_qualification, job_type, job_tenure, job_status, company_name, company_image_url, company_city, salary_min, salary_max } = inputFinalProject;
-  const token = Cookies.get('token'); // Mengambil token dari Cookies
-  const headers = {
-    "Authorization": `Bearer ${token}`
   };
-  axios
-    .put(
-      `https://dev-example.sanbercloud.com/api/job-vacancy/${id}`,
-      {
-        title,
-        job_description,
-        job_qualification,
-        job_type,
-        job_tenure,
-        job_status,
-        company_name,
-        company_image_url,
-        company_city,
-        salary_min,
-        salary_max,
-      }, { headers
-      }
-    )
-    .then((result) => {
-      console.log(result);
-      setfetchStatus(true);
-    })
-    .catch((error) => {
-      alert(error);
+
+  // Edit Data Function
+  const handleEditDataFinalProject = (events, id) => {
+    events.preventDefault();
+    const {
+      title,
+      job_description,
+      job_qualification,
+      job_type,
+      job_tenure,
+      job_status,
+      company_name,
+      company_image_url,
+      company_city,
+      salary_min,
+      salary_max,
+    } = inputFinalProject;
+    const token = Cookies.get("token"); // Mengambil token dari Cookies
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    axios
+      .put(
+        `https://dev-example.sanbercloud.com/api/job-vacancy/${id}`,
+        {
+          title,
+          job_description,
+          job_qualification,
+          job_type,
+          job_tenure,
+          job_status,
+          company_name,
+          company_image_url,
+          company_city,
+          salary_min,
+          salary_max,
+        },
+        { headers }
+      )
+      .then((result) => {
+        console.log(result);
+        setfetchStatus(true);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+    // Reset input to default values
+    setInput({
+      title: "",
+      job_description: "",
+      job_qualification: "",
+      job_type: "",
+      job_tenure: "",
+      job_status: 0,
+      company_name: "",
+      company_image_url: "",
+      company_city: "",
+      salary_min: 0,
+      salary_max: 0,
     });
+  };
 
-  // Reset input to default values
-  setInput({
-    title: "",
-    job_description: "",
-    job_qualification: "",
-    job_type: "",
-    job_tenure: "",
-    job_status: 0,
-    company_name: "",
-    company_image_url: "",
-    company_city: "",
-    salary_min: 0,
-    salary_max: 0,
-  });
-};
-
-  
   //Membuat Variable untuk semua state dan function
   //Variable Global State
   let state = {
