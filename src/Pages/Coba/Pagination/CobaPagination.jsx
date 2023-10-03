@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JobList from './JobList';
-import Pagination from './Pagination';
+import Pagination from '../../Tugas/Kanban/Pagination';
 
 const CobaPagination = () => {
   const [jobs, setJobs] = useState([]);
