@@ -121,6 +121,7 @@ export const GlobalProvider = (props) => {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    setFormSubmitted(true); // Set formSubmitted to true when the form is submitted
 
     let { email, password } = inputLogin;
 
@@ -131,6 +132,13 @@ export const GlobalProvider = (props) => {
     // .then(res => {
     //     ....//logicnya
     // })
+
+    // Validation check: if password is the same as the name, show an alert
+    if (password === email) {
+      setErrorMessage("Password cannot be the same as your name."); // Set error message
+      setSuccessMessage(""); // Clear success message
+      return;
+    }
 
     axios
       .post(`https://dev-example.sanbercloud.com/api/login`, {
