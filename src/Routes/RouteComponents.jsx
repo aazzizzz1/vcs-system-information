@@ -12,6 +12,7 @@ import TableProductManager from "../Pages/Dashboard/TableProductManager";
 import FinalProject from "../Pages/Tugas/FinalProject";
 import KanbanTable from "../Pages/Tugas/Kanban/KanbanTable";
 import CobaPagination from "../Pages/Coba/Pagination/CobaPagination";
+import ErrorPage from "../Components/Default/ErrorPage";
 
 const SignInRoute = (props) =>{
     if (Cookies.get('token') !== undefined) {
@@ -112,6 +113,12 @@ const RouteComponents = () => {
             }
           />
           <Route path="/coba" element={<CobaPagination/>} />
+          <Route
+              path="/*"
+              element={
+                <ErrorPage/>
+              }
+            />
         </Routes>
       </GlobalProvider>
       </BrowserRouter>
