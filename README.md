@@ -1,6 +1,91 @@
+# VCS System Information
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Create .env file that contains your database setting such as hostname, username, password, database name, and secret key for authentication purpose.
+
+.env.development
+
+```
+API_SERVER = http://localhost:8000/api/
+SOCKET_SERVER = http://localhost:3001
+SECRET_KEY = vocs-si-secret-key
+```
+
+.env.production
+
+```
+API_SERVER = http://172.16.6.117:8000/api/
+SOCKET_SERVER = http://172.16.6.117:3001
+SECRET_KEY = vocs-si-secret-key
+```
+
+### Installing
+
+Clone this repository and run the following command
+
+```
+npm install
+```
+
+After all packages installed, place the .env files on this app folder. The directory should be like this
+
+```
+├── .env
+├── package-lock.json
+├── package.json
+├── tailwind.config.js
+├── gitignore
+└── public
+    ├── flowbite.css
+    ├── flowbite.js
+    ├── index.html
+    ├── manifest.json
+    └── robots.txt
+└── src
+    ├── __test__
+    ├── assets
+    ├── components
+    ├── layouts
+    ├── pages
+    ├── routes
+    ├── statemanagement
+    ├── style
+    ├── App.jsx
+    ├── index.js
+    ├── main.jsx
+    └── index.scss
+
+```
+
+## Running the application
+
+```
+npm run start
+```
+
+## Running test
+
+```
+npm run test
+```
+
+## Built with
+
+- [React](https://react.dev/) - The library for web and native user interfaces
+- [Tailwind](https://tailwindcss.com/) - CSS framework
+- [Redux](https://redux.js.org/) - State management library
+- [JWT](https://jwt.io/) - JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+- [Socket.IO](https://socket.io//) - Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
+<!-- - [Formik](https://formik.org/) - Library for creating Form elements
+- [Yup](https://github.com/jquense/yup) - a schema builder for runtime value parsing and validation -->
 
 ## Available Scripts
 
@@ -69,77 +154,58 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+<!-- Coaching LEn 
+ -->
 
-# VCS Server
+ # UserList
 
-## Getting Started
+Buat tampilan sederhana UserList yang mempunyai fitur.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+1. Add, Edit, Delete.
+2. List User ditampilkan dalam bentuk Table.
+3. Terdapat fitur Search
+4. Terdapat fitur Pagination
+5. Data menggunakan data dummy
 
-### Prerequisites
+## Langkah 1: Instalasi
 
-Create .env file that contains your database setting such as hostname, username, password, database name, and secret key for authentication purpose.
+Pastikan Anda memiliki Node.js dan NPM terinstal di komputer Anda sebelum melanjutkan.
 
-.env.development
+1. Clone repositori ini ke komputer Anda:
 
-```
-VITE_API_SERVER = http://localhost:8000/api/
-VITE_SOCKET_SERVER = http://localhost:3001
-VITE_SECRET_KEY = vocs-server-secret-key
-```
+   ```bash
+   git clone https://github.com/aazzizzz1/UserList.git
+   
+2. Buka terminal/command prompt, masuk ke direktori proyek:
 
-.env.production
+   ```bash
+   cd nama-proyek-anda
 
-```
-VITE_API_SERVER = http://172.16.6.117:8000/api/
-VITE_SOCKET_SERVER = http://172.16.6.117:3001
-VITE_SECRET_KEY = vocs-server-secret-key
-```
+3. Instal dependensi proyek dengan menjalankan perintah berikut:
 
-### Installing
+   ```bash
+   npm install
+   
+## Langkah 2: Menjalankan Proyek
 
-Clone this repository and run the following command
+1. Setelah menginstal dependensi, Anda dapat menjalankan proyek ini:
 
-```
-npm install
-```
+   ```bash
+   git clone https://github.com/aazzizzz1/UserList.git
 
-After all packages installed, place the .env files on this app folder. The directory should be like this
+Aplikasi akan berjalan di http://localhost:6090 Buka browser Anda dan akses URL ini untuk melihat proyek Anda.
 
-```
-├── .env
-├── package-lock.json
-├── package.json
-└── src
-    ├── assets
-    ├── components
-    ├── config
-    ├── pages
-    ├── utils
-    ├── App.jsx
-    ├── main.jsx
-    └── index.scss
-```
+## Kontribusi
+Jika Anda ingin berkontribusi pada proyek ini, silakan buat pull request dengan perubahan Anda.
 
-## Running the application
+## Helpful Links
 
-```
-npm run dev
-```
+* [React JS](https://react.dev/)
+* [Version Control](https://en.wikipedia.org/wiki/Version_control)
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Pro Git](https://git-scm.com/book/en/v2)
+* [Dev Docs](https://devdocs.io/)
 
-## Running test
-
-```
-npm run test
-```
-
-## Built with
-
-- [React](https://react.dev/) - The library for web and native user interfaces
-- [Tailwind](https://tailwindcss.com/) - CSS framework
-- [Redux](https://redux.js.org/) - State management library
-- [Vite](https://vitejs.dev/) - Module bundler
-- [JWT](https://jwt.io/) - JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
-- [Socket.IO](https://socket.io//) - Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
-- [Formik](https://formik.org/) - Library for creating Form elements
-- [Yup](https://github.com/jquense/yup) - a schema builder for runtime value parsing and validation
+- - -
+© 2023 Abdul Aziz, a 2U, Inc. brand. All Rights Reserved.
