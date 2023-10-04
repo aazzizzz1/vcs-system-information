@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const ErrorToast = (props) => {
-    const [showToast, setShowToast] = useState(true);
+    const [showToast] = useState(true);
     const toastRef = useRef(null);
 
-    const handleCloseClick = () => {
-        setShowToast(false);
-    };
+    // const handleCloseClick = () => {
+    //     setShowToast(false);
+    // };
 
     useEffect(() => {
         // Fokuskan elemen toast saat komponen telah dimount dan showToast adalah true
@@ -40,7 +40,7 @@ const ErrorToast = (props) => {
           <span className="sr-only">Error icon</span>
         </div>
         <div className="ml-3 text-sm font-normal">{props.message}</div>
-        <button
+        {/* <button
           type="button"
           className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
           data-dismiss-target="#toast-danger"
@@ -63,7 +63,7 @@ const ErrorToast = (props) => {
               d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
   )
 }
