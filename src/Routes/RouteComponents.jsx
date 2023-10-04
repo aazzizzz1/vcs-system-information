@@ -97,6 +97,16 @@ const RouteComponents = () => {
             }
           />
           <Route
+            path="/detail/:id"
+            element={
+              <HomeRoute>
+                <LayoutSidebar>
+                  <Default/>
+                </LayoutSidebar>
+              </HomeRoute>
+            }
+          />
+          <Route
             path="/signin"
             element={
               <SignInRoute>

@@ -149,6 +149,8 @@ export const GlobalProvider = (props) => {
         // console.log(res)
         let data = res.data;
         Cookies.set(`token`, data.token, { expires: 1 });
+        Cookies.set(`user`, JSON.stringify(data.user), { expires: 1 });
+        console.log(data);
         setSuccessMessage("Login successful!"); // Set success message
         setErrorMessage(""); // Clear error message
         window.location.href = "/"; // Redirect to the root URL
@@ -437,7 +439,7 @@ export const GlobalProvider = (props) => {
     }
   };
 
-  // Create Data Function
+  // Create Data Function dengan Token
   const handleCreateDataFinalProject = (events) => {
     events.preventDefault();
     const {
@@ -453,8 +455,9 @@ export const GlobalProvider = (props) => {
       salary_min,
       salary_max,
     } = inputFinalProject;
-    const token = Cookies.get("token"); // Mengambil token dari Cookies
 
+    //Menambahkan Token pada Header
+    const token = Cookies.get("token"); // Mengambil token dari Cookies
     // Menambahkan token ke header permintaan
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -481,7 +484,7 @@ export const GlobalProvider = (props) => {
       .then((result) => {
         console.log(result);
         setfetchStatus(true);
-        // window.location.href = "/kanban";
+        window.location.href = "/kanban";
         // navigate("/");
       })
       .catch((error) => {
