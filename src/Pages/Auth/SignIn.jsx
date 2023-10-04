@@ -4,6 +4,7 @@ import ErrorToast from "../../Components/Toast/ErrorToast";
 import { GlobalContext } from "../../StateManagements/GlobalContext";
 import EyeClosedIcon from "../../Assets/EyeClosedIcon";
 import EyeOpenIcon from "../../Assets/EyeOpenIcon";
+import LogoLen from "../../Assets/LogoLen.png";
 
 const SignIn = () => {
   //Memanggil state dari GlobalContext dan dari destructuring dibawah ini
@@ -30,12 +31,7 @@ const SignIn = () => {
             href="a"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <img
-              className="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-              alt="logo"
-            />
-            Flowbite
+            <img className="w-40 h-30 mr-2" src={LogoLen} alt="Logo-Len" border="0" />
           </a>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -52,7 +48,7 @@ const SignIn = () => {
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Your email
+                    Email
                   </label>
                   <input
                     value={inputLogin.email}
@@ -171,12 +167,12 @@ const SignIn = () => {
                       </label>
                     </div>
                   </div>
-                  <a
+                  {/* <a
                     href="a"
                     className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Forgot password?
-                  </a>
+                  </a> */}
                 </div>
                 <button
                   type="submit"
